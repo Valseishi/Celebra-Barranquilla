@@ -1,0 +1,830 @@
+/* ==========================================================================
+   1. RESET GENERAL Y TIPOGRAFÍA
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* ==========================================================================
+   2. HEADER / NAVBAR (FONDO BLANCO)
+   ========================================================================== */
+.header {
+    width: 100%;
+    height: 90px;
+    background-color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 80px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.logo img {
+    width: 160px;
+    object-fit: contain;
+}
+
+.navbar {
+    display: flex;
+    align-items: center;
+    margin-left: auto; 
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #333333;
+    font-size: 16px;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: color 0.3s;
+}
+
+.navbar a:hover {
+    color: #751e9f;
+}
+
+/* Botón Cerrar Sesión (Rojo) */
+.btn-register {
+    text-decoration: none;
+    background-color: #ef4444;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px; 
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.btn-register:hover {
+    background-color: #dc2626;
+    transform: translateY(-1px);
+}
+
+/* ==========================================================================
+   3. HERO SECTION (BIENVENIDA A JOSE RUIZ)
+   ========================================================================== */
+.hero {
+    background-color: #751e9f; /* Color morado exacto */
+    min-height: calc(100vh - 90px);
+    display: flex;
+    align-items: center;
+    padding: 60px 80px;
+}
+
+.hero-container {
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+    position: relative;
+}
+
+.hero-text {
+    flex: 1;
+    color: white;
+}
+
+.hero-text h1 {
+    font-size: 52px;
+    font-weight: 700;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+    margin-bottom: 24px;
+}
+
+.hero-text p {
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 35px;
+    max-width: 520px;
+    opacity: 0.85;
+}
+
+/* Botones del Hero */
+.hero-buttons {
+    display: flex;
+    gap: 16px;
+}
+
+.hero-buttons a {
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    transition: 0.3s;
+    text-align: center;
+}
+
+.btn-yellow {
+    background-color: #fcd85a; /* Amarillo exacto */
+    color: #111111;
+}
+
+.btn-yellow:hover {
+    background-color: #e4c14b;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: white;
+    border: 2px solid white;
+}
+
+.btn-outline:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- AJUSTE DE ESTRELLAS GRANDES (ELIMINANDO TRANSPARENCIA) --- */
+.hero-stars {
+    position: absolute;
+    /* Subimos la imagen con margen negativo para contrarrestar el vacío superior */
+    top: -150px; 
+    right: 20px; 
+    
+    /* Incrementamos el ancho de la caja completa para que las estrellas cobren tamaño */
+    width: 480px; 
+    
+    z-index: 5;
+    animation: floatAnimation 4s ease-in-out infinite;
+}
+
+.hero-stars img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    /* Ajusta la opacidad si notas que compite mucho con el texto */
+    opacity: 0.95; 
+}
+
+
+/* Efecto de flotación suave (Sube y baja levemente) */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-12px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+/* Ocultar en celulares para que no se amontone sobre el texto de bienvenida */
+@media (max-width: 992px) {
+    .hero-stars {
+        display: none;
+    }
+}
+/* ==========================================================================
+   4. SECCIÓN RESERVA YA (CARRUSEL HORIZONTAL)
+   ========================================================================== */
+.rooms-section {
+    background-color: #ffffff;
+    padding: 80px 20px;
+    width: 100%;
+    overflow: hidden;
+    scroll-margin-top: 90px;
+}
+
+.rooms-header {
+    max-width: 1100px;
+    margin: 0 auto 40px auto;
+    text-align: left;
+    padding: 0 40px;
+}
+
+.rooms-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.rooms-header p {
+    font-size: 16px;
+    color: #666666;
+}
+
+.carousel-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+    padding: 0 50px;
+}
+
+.rooms-container {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 10px 5px 30px 5px;
+}
+
+.rooms-container::-webkit-scrollbar { display: none; }
+.rooms-container { -ms-overflow-style: none; scrollbar-width: none; }
+
+.room-card {
+    min-width: calc((100% - (3 * 24px)) / 4); 
+    background-color: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+    scroll-snap-align: start;
+    border: 1px solid #e2e8f0;
+    transition: transform 0.3s ease;
+}
+
+.room-card:hover {
+    transform: translateY(-5px);
+}
+
+.room-image {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow: hidden;
+}
+
+.room-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.badge-available {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: #fcd85a;
+    color: #111111;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 20px;
+    z-index: 10;
+}
+
+.room-info {
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.room-info h3 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 14px;
+}
+
+.room-meta {
+    font-size: 14px;
+    color: #777777;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.btn-details {
+    text-decoration: none;
+    background-color: #751e9f;
+    color: #ffffff;
+    text-align: center;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    margin-top: auto;
+    transition: background-color 0.3s;
+}
+
+.btn-details:hover { background-color: #5c1d93; }
+
+/* Flechas del Carrusel */
+.carousel-btn {
+    position: absolute;
+    top: 45%;
+    transform: translateY(-50%);
+    width: 46px;
+    height: 46px;
+    background-color: #b9c5d9;
+    color: #333333;
+    border: none;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: background-color 0.2s;
+}
+
+.carousel-btn:hover { background-color: #a3b3cc; }
+.btn-prev { left: 0; }
+.btn-next { right: 0; }
+
+/* ==========================================================================
+   5. SECCIÓN PAQUETES COMPLETOS
+   ========================================================================== */
+.packages-section {
+    background-color: #f8fafc;
+    padding: 80px 20px;
+    width: 100%;
+    scroll-margin-top: 90px;
+}
+
+.packages-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.packages-header h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 12px;
+}
+
+.packages-header p { font-size: 16px; color: #666666; }
+
+.packages-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.category-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 20px;
+}
+
+.packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.package-card {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+}
+
+.package-info { padding: 30px 24px 20px 24px; }
+
+.package-badge {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 20px;
+}
+
+.badge-purple { background-color: #f3e8ff; }
+.badge-yellow { background-color: #fef9c3; }
+.badge-blue { background-color: #e0f2fe; }
+
+.package-info h4 { font-size: 20px; font-weight: 700; color: #111111; margin-bottom: 16px; }
+.package-list { list-style: none; }
+
+.package-list li {
+    font-size: 13.5px;
+    color: #555555;
+    line-height: 1.5;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 16px;
+}
+
+.package-list li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #888888;
+    font-size: 16px;
+}
+
+.package-footer {
+    padding: 20px 24px 30px 24px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px dashed #e2e8f0;
+}
+
+.package-price { display: flex; flex-direction: column; }
+.package-price span { font-size: 12px; color: #888888; text-transform: uppercase; }
+.package-price strong { font-size: 20px; font-weight: 700; color: #111111; }
+
+.btn-more {
+    text-decoration: none;
+    background-color: #52c41a;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    padding: 10px 24px;
+    border-radius: 8px;
+}
+
+.border-purple { border-top: 5px solid #751e9f; }
+.border-yellow { border-top: 5px solid #fcd85a; }
+.border-blue { border-top: 5px solid #4a90e2; }
+
+/* ==========================================================================
+   6. FORMULARIO EMERGENTE MODAL DE CONTACTO
+   ========================================================================== */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(13, 21, 32, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.modal-overlay.active { opacity: 1; pointer-events: auto; }
+
+.modal-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);transform: translateY(-20px);transition: transform 0.3s ease;}.modal-overlay.active .modal-card { transform: translateY(0); }.close-modal {position: absolute;top: 20px;right: 24px;background: none;border: none;font-size: 28px;color: #64748b;cursor: pointer;}.modal-header { margin-bottom: 28px; text-align: center; }.modal-header h3 { font-size: 24px; font-weight: 700; color: #111111; }.modal-header p { font-size: 14px; color: #64748b; }.modal-form { display: flex; flex-direction: column; gap: 20px; }.form-group { display: flex; flex-direction: column; gap: 8px; }.form-group label { font-size: 14px; font-weight: 600; color: #334155; }.form-group input, .form-group textarea {width: 100%;padding: 12px 16px;border: 1px solid #cbd5e1;border-radius: 8px;font-size: 14px;outline: none;}.form-group input:focus, .form-group textarea:focus {border-color: #751e9f;box-shadow: 0 0 0 3px rgba(117, 30, 159, 0.15);}.form-group textarea { resize: none; }.btn-submit-form {background-color: #751e9f;color: #ffffff;border: none;border-radius: 8px;padding: 14px;font-size: 15px;font-weight: 600;cursor: pointer;}/* ==========================================================================7. AJUSTES RESPONSIVOS (TABLETS Y MÓVILES)========================================================================== */@media (max-width: 992px) {.header { padding: 0 40px; }.hero { padding: 60px 40px; }.hero-container { flex-direction: column; text-align: center; gap: 40px; }.hero-text p { margin: 0 auto 35px auto; }.hero-buttons { justify-content: center; }.hero-gallery { max-width: 100%; }.col-right { margin-top: 0; }.room-card { min-width: calc((100% - (1 * 24px)) / 2); }.packages-grid { grid-template-columns: repeat(2, 1fr); }}@media (max-width: 650px) {.packages-grid { grid-template-columns: 1fr; }}@media (max-width: 600px) {.carousel-wrapper { padding: 0; }.carousel-btn { display: none; }.room-card { min-width: 85%; }}
+    /* --- 6. SECCIÓN CALL TO ACTION (CTA MORADO) --- */
+.cta-section {
+    background-color: #ffffff;
+    padding: 60px 20px;
+    width: 100%;
+}
+
+.cta-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    /* Degradado morado exacto de la imagen de referencia */
+    background: linear-gradient(135deg, #751e9f 0%, #5c1a80 100%);
+    border-radius: 16px;
+    padding: 60px 40px;
+    text-align: center;
+    color: #ffffff;
+    box-shadow: 0 10px 30px rgba(117, 30, 159, 0.2);
+}
+
+.cta-container h2 {
+    font-size: 32px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+
+.cta-container p {
+    font-size: 16px;
+    opacity: 0.85;
+    margin-bottom: 35px;
+}
+
+/* Contenedor de Botones de Contacto */
+.cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Permite que se apilen en celulares si no hay espacio */
+}
+
+.cta-buttons a {
+    text-decoration: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 15px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.cta-buttons a:hover {
+    transform: translateY(-2px);
+}
+
+/* Botón Blanco (Teléfono) */
+.btn-cta-white {
+    background-color: #ffffff;
+    color: #111111;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+/* Botón Amarillo (Email) */
+.btn-cta-yellow {
+    background-color: #fcd85a; /* Tu amarillo exacto */
+    color: #111111;
+    box-shadow: 0 4px 12px rgba(252, 216, 90, 0.2);
+}
+
+
+/* --- 7. FOOTER PRINCIPAL (FONDO OSCURO) --- */
+.main-footer {
+    background-color: #0d1520; /* El tono azul oscuro/negro del diseño */
+    color: #ffffff;
+    padding: 60px 20px 20px 20px;
+    width: 100%;
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.2fr; /* Proporciones para las 3 columnas */
+    gap: 60px;
+    padding-bottom: 40px;
+}
+
+.footer-col h3 {
+    font-size: 16px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+    color: #ffffff;
+}
+
+.footer-col p {
+    font-size: 14px;
+    color: #94a3b8; /* Gris suave para textos secundarios */
+    line-height: 1.6;
+    max-width: 320px;
+}
+
+/* Enlaces del Footer */
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 12px;
+}
+
+.footer-links a {
+    text-decoration: none;
+    font-size: 14px;
+    color: #94a3b8;
+    transition: color 0.2s;
+}
+
+.footer-links a:hover {
+    color: #ffffff; /* Brilla al pasar el cursor */
+}
+
+/* Datos de Contacto del Footer */
+.footer-contact {
+    list-style: none;
+}
+
+.footer-contact li {
+    font-size: 14px;
+    color: #94a3b8;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.footer-contact .icon {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* Barra de Derechos Reservados */
+.footer-bottom {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Línea divisoria muy sutil */
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 13px;
+    color: #64748b;
+}
+
+
+/* --- RESPONSIVIDAD PARA EL FOOTER Y CTA --- */
+@media (max-width: 850px) {
+    .footer-container {
+        grid-template-columns: 1fr; /* Pasa a una sola columna en pantallas medianas/chicas */
+        gap: 40px;
+    }
+    
+    .footer-col h3 {
+        margin-bottom: 16px;
+    }
+
+    .cta-container {
+        padding: 40px 20px;
+    }
+
+    .cta-container h2 {
+        font-size: 26px;
+    }
+}
+
+
+/* --- 8. ESTILOS DEL FORMULARIO EMERGENTE (MODAL) --- */
+
+/* Fondo oscuro translúcido que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(13, 21, 32, 0.7); /* Tono oscuro a juego con tu footer */
+    backdrop-filter: blur(4px); /* Efecto difuminado de fondo moderno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* Asegura que flote por encima de menús o carruseles */
+    opacity: 0;
+    pointer-events: none; /* Invisible e interactivo solo cuando se activa */
+    transition: opacity 0.3s ease;
+}
+
+/* Clase que activa la visibilidad mediante JavaScript */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Tarjeta Blanca Contenedora */
+.modal-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de animación al abrir la tarjeta */
+.modal-overlay.active .modal-card {
+    transform: translateY(0);
+}
+
+/* Botón de Cierre (X) */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #64748b;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #111111;
+}
+
+/* Encabezado del Formulario */
+.modal-header {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.modal-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Estructura Interna del Formulario */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* Estilizado de Inputs y Textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #111111;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Efecto de enfoque cuando el usuario escribe */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #751e9f; /* Tu morado institucional */
+    box-shadow: 0 0 0 3px rgba(117, 30, 159, 0.15);
+}
+
+/* Textarea fija para evitar que rompa el diseño */
+.form-group textarea {
+    resize: none;
+}
+
+/* Botón de Envío */
+.btn-submit-form {
+    background-color: #751e9f; /* Color morado exacto de tu Hero */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-submit-form:hover {
+    background-color: #5c1d93;
+}
+
+.btn-submit-form:active {
+    transform: scale(0.98); /* Pequeño efecto de pulsación táctil */
+}
+
+/* Adaptación para pantallas pequeñas (Celulares) */
+@media (max-width: 550px) {
+    .modal-card {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+}

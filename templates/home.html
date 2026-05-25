@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Celebra Barranquilla</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <!-- 1. HEADER (Fondo Blanco) -->
+    <header class="header">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Celebra">
+        </div>
+        <nav class="navbar">
+            <a href="#">Paquetes</a>
+        </nav>
+        <a href="/login" class="btn-register">
+            Registrarme
+        </a>
+    </header>
+
+    <!-- 2. HERO SECTION (Fondo Morado #751e9f) -->
+    <main class="hero">
+        <div class="hero-container">
+
+            <div class="hero-text">
+                <h1>Celebra Tus Momentos Inolvidables</h1>
+                <p>Salones y servicios para todo tipo de eventos, con espacios cómodos, atención cercana y todo lo necesario para celebrar sin preocupaciones.</p>
+                <div class="hero-buttons">
+                    <a href="#nuestros-salones" class="btn-yellow">Ver salones</a>
+                    <a href="javascript:void(0)" class="btn-outline" onclick="openModal()">Contactanos</a>
+                </div>
+            </div>
+
+            <!-- Galería de Fotos Asimétrica -->
+            <div class="hero-gallery">
+                <!-- Columna Izquierda (Va más arriba) -->
+                <div class="gallery-col col-left">
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='evento1.png') }}" alt="Evento 1">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='evento3.png') }}" alt="Evento 3">
+                    </div>
+                </div>
+                
+                <!-- Columna Derecha (Desplazada hacia abajo) -->
+                <div class="gallery-col col-right">
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='evento2.png') }}" alt="Evento 2">
+                    </div>
+                    <div class="gallery-item">
+                        <img src="{{ url_for('static', filename='evento4.png') }}" alt="Evento 4">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- 3. SECCIÓN NUESTROS SERVICIOS (Fondo Blanco) -->
+    <section class="services-section">
+        <div class="services-header">
+            <h2>Nuestros Servicios</h2>
+            <p>Organizamos todo tipo de eventos sociales y corporativos</p>
+        </div>
+
+        <div class="services-container">
+            
+            <!-- Tarjeta 1: Eventos Sociales -->
+            <div class="service-card card-purple">
+                <div class="service-info">
+                    <div class="service-icon icon-purple"></div>
+                    <h3>Eventos Sociales</h3>
+                    <p class="service-desc">Bodas, quinceañeros, cumpleaños y aniversarios con decoración personalizada.</p>
+                    <ul class="service-list">
+                        <li>Decoración temática</li>
+                        <li>Buffet y menús especiales</li>
+                        <li>Sonido e iluminación</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='servicio1.png') }}" alt="Eventos Sociales">
+                </div>
+            </div>
+
+            <!-- Tarjeta 2: Eventos Corporativos -->
+            <div class="service-card card-orange">
+                <div class="service-info">
+                    <div class="service-icon icon-orange"></div>
+                    <h3>Eventos Corporativos</h3>
+                    <p class="service-desc">Reuniones empresariales y celebraciones corporativas profesionales.</p>
+                    <ul class="service-list">
+                        <li>Equipamiento audiovisual</li>
+                        <li>Catering ejecutivo</li>
+                        <li>Espacios adaptables</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='servicio2.png') }}" alt="Eventos Corporativos">
+                </div>
+            </div>
+
+            <!-- Tarjeta 3: Ubicaciones Estratégicas -->
+            <div class="service-card card-blue">
+                <div class="service-info">
+                    <div class="service-icon icon-blue"></div>
+                    <h3>Ubicaciones Estratégicas</h3>
+                    <p class="service-desc">5 salones en zonas norte, sur y este de Barranquilla.</p>
+                    <ul class="service-list">
+                        <li>Fácil acceso</li>
+                        <li>Parqueadero amplio</li>
+                        <li>Zonas seguras</li>
+                    </ul>
+                </div>
+                <div class="service-image">
+                    <img src="{{ url_for('static', filename='servicio3.png') }}" alt="Ubicaciones Estratégicas">
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. SECCIÓN NUESTROS SALONES (Con Carrusel Deslizante) -->
+    <!-- Busca el inicio de la sección de salones y déjalo así: -->
+    <section class="rooms-section" id="nuestros-salones">
+        <div class="rooms-header">
+            <h2>Nuestros Salones</h2>
+            <p>Espacios elegantes para todo tipo de celebraciones</p>
+        </div>
+
+        <div class="carousel-wrapper">
+            <!-- Botón de Control Izquierdo -->
+            <button class="carousel-btn btn-prev" id="prevBtn" aria-label="Anterior">&lt;</button>
+            
+            <!-- Contenedor Deslizante de las Tarjetas -->
+            <div class="rooms-container" id="carouselTrack">
+                
+                <!-- Tarjeta 1: Salón Celebra Imperial -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <span class="badge-available">Disponible</span>
+                        <img src="{{ url_for('static', filename='salon_imperial.png') }}" alt="Salón Celebra Imperial">
+                    </div>
+                    <div class="room-info">
+                        <h3>Salón Celebra Imperial</h3>
+                        <p class="room-meta"><span class="icon">📍</span> Zona Sur</p>
+                        <p class="room-meta"><span class="icon">👥</span> 250 personas</p>
+                        <a href="#" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Salón Celebra Golden -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <span class="badge-available">Disponible</span>
+                        <img src="{{ url_for('static', filename='salon1.png') }}" alt="Salón Celebra Golden">
+                    </div>
+                    <div class="room-info">
+                        <h3>Salón Celebra Golden</h3>
+                        <p class="room-meta"><span class="icon">📍</span> Zona Norte</p>
+                        <p class="room-meta"><span class="icon">👥</span> 200 personas</p>
+                        <a href="#" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Salón Celebra Élite -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <span class="badge-available">Disponible</span>
+                        <img src="{{ url_for('static', filename='salon2.png') }}" alt="Salón Celebra Élite">
+                    </div>
+                    <div class="room-info">
+                        <h3>Salón Celebra Élite</h3>
+                        <p class="room-meta"><span class="icon">📍</span> Zona Norte</p>
+                        <p class="room-meta"><span class="icon">👥</span> 180 personas</p>
+                        <a href="#" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 4: Salón Celebra Sunset -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <span class="badge-available">Disponible</span>
+                        <img src="{{ url_for('static', filename='salon3.png') }}" alt="Salón Celebra Sunset">
+                    </div>
+                    <div class="room-info">
+                        <h3>Salón Celebra Sunset</h3>
+                        <p class="room-meta"><span class="icon">📍</span> Riomar</p>
+                        <p class="room-meta"><span class="icon">👥</span> 180 personas</p>
+                        <a href="#" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Salón Celebra Alegría -->
+                <div class="room-card">
+                    <div class="room-image">
+                        <span class="badge-available">Disponible</span>
+                        <img src="{{ url_for('static', filename='salon4.png') }}" alt="Salón Celebra Alegría">
+                    </div>
+                    <div class="room-info">
+                        <h3>Salón Celebra Alegría</h3>
+                        <p class="room-meta"><span class="icon">📍</span> Zona Oriental</p>
+                        <p class="room-meta"><span class="icon">👥</span> 80 personas</p>
+                        <a href="#" class="btn-details">Ver Detalles</a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Botón de Control Derecho -->
+                        <!-- Botón de Control Derecho -->
+            <button class="carousel-btn btn-next" id="nextBtn" aria-label="Siguiente">&gt;</button>
+        </div>
+    </section>
+
+    <!-- CONTROL LÓGICO DEL CARRUSEL -->
+    <script>
+        const track = document.getElementById('carouselTrack');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        // Calcula el tamaño exacto del desplazamiento tomando en cuenta la tarjeta y el espacio (gap)
+        const getScrollAmount = () => {
+            const card = document.querySelector('.room-card');
+            const gap = 24; 
+            return card ? card.offsetWidth + gap : 300;
+        };
+
+        nextBtn.addEventListener('click', () => {
+            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
+        });
+    </script>
+
+        <!-- 5. SECCIÓN PAQUETES DE EVENTOS -->
+    <section class="packages-section" id="paquetes">
+        
+        <!-- Encabezado Principal -->
+        <div class="packages-header">
+            <h2>Paquetes de Eventos</h2>
+            <p>Organizamos todo tipo de eventos sociales y corporativos</p>
+        </div>
+
+        <div class="packages-wrapper">
+            
+            <!-- SUBSECCIÓN 1: PAQUETES COMPLETOS -->
+            <h3 class="category-title">Paquetes completos</h3>
+            <div class="packages-grid">
+                
+                <!-- Tarjeta 1: Paquete Básico -->
+                <div class="package-card border-purple">
+                    <div class="package-info">
+                        <div class="package-badge badge-purple">🟣</div>
+                        <h4>Basico</h4>
+                        <ul class="package-list">
+                            <li><strong>Decoración Básica:</strong> 80 globos temáticos, 2 centros de mesa, manteles decorativos y cortina principal.</li>
+                            <li><strong>Mobiliario & Sonido:</strong> 25 sillas plásticas decoradas, 5 mesas para invitados, 2 bocinas, 1 micrófono inalámbrico y música ambiental.</li>
+                            <li><strong>Logística:</strong> Personal de apoyo para la organización básica disponible durante todo el evento.</li>
+                            <li><strong>Zona de Fotos:</strong> Espacio principal decorado especialmente para fotografías.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 500.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 2: Paquete Celebration -->
+                <div class="package-card border-yellow">
+                    <div class="package-info">
+                        <div class="package-badge badge-yellow">💡</div>
+                        <h4>Celebration</h4>
+                        <ul class="package-list">
+                            <li><strong>Decoración Temática:</strong> 150 globos, arco decorativo, mesa principal decorada y letrero personalizado.</li>
+                            <li><strong>Sonido & Show:</strong> 4 bocinas, consola básica, 2 micrófonos, DJ básico, animador de eventos y luces LED decorativas.</li>
+                            <li><strong>Bebidas Incluidas:</strong> Gaseosas y agua para un total de 40 personas.</li>
+                            <li><strong>Mobiliario & Staff:</strong> 40 sillas decoradas, 8 mesas y personal logístico durante todo el evento.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 850.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 3: Paquete Golden -->
+                <div class="package-card border-blue">
+                    <div class="package-info">
+                        <div class="package-badge badge-blue">🌟</div>
+                        <h4>Golden</h4>
+                        <ul class="package-list">
+                            <li><strong>Decoración Premium:</strong> 250 globos, photocall decorativo, mesa principal elegante, centros iluminados y entrada decorada.</li>
+                            <li><strong>Banquete Completo:</strong> Buffet básico para 70 personas (2 opciones de comida, bebidas y postre) junto a una mesa de dulces.</li>
+                            <li><strong>Sonido & Entretenimiento:</strong> Consola, 6 bocinas, micrófonos inalámbricos, DJ profesional y animador.</li>
+                            <li><strong>Fotografía:</strong> 30 fotografías digitales editadas + personal de apoyo y coordinación.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 1.300.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+            </div> <!-- Fin de la grilla de paquetes completos -->
+                        <!-- SUBSECCIÓN 2: PAQUETES DE BUFFET Y PASABOCAS -->
+            <h3 class="category-title">Paquetes de buffet y pasabocas</h3>
+            <div class="packages-grid">
+                
+                <!-- Tarjeta 4: Buffet Clásico -->
+                <div class="package-card border-purple">
+                    <div class="package-info">
+                        <div class="package-badge badge-gray">🍽️</div>
+                        <h4>Clasico</h4>
+                        <ul class="package-list">
+                            <li><strong>Plato Fuerte:</strong> 30 platos servidos que incluyen arroz, proteína y acompañante de elección.</li>
+                            <li><strong>Pasabocas:</strong> 3 variedades distintas de pasabocas servidos calientes durante la recepción.</li>
+                            <li><strong>Bebidas:</strong> Gaseosas y agua purificada de cortesía para los comensales.</li>
+                            <li><strong>Staff & Dulces:</strong> Postre clásico de la casa junto a 2 meseros de apoyo técnico.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 350.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 5: Buffet Premium (Presentado como Completo) -->
+                <div class="package-card border-orange">
+                    <div class="package-info">
+                        <div class="package-badge badge-gray">🍗</div>
+                        <h4>Completo</h4>
+                        <ul class="package-list">
+                            <li><strong>Menú de Gala:</strong> 60 platos premium servidos con entrada y 2 opciones de proteína a elección.</li>
+                            <li><strong>Estaciones Libres:</strong> Estación completa de snacks salados y mesa de postres selectos.</li>
+                            <li><strong>Bar de Bebidas:</strong> Servicio ilimitado de bebidas refrescantes durante el banquete.</li>
+                            <li><strong>Personal:</strong> 4 meseros profesionales totalmente uniformados para la atención.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 700.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 6: Paquete Imperial (El paquete especial premium de comida y evento) -->
+                <div class="package-card border-blue">
+                    <div class="package-info">
+                        <div class="package-badge badge-gray">👑</div>
+                        <h4>Especial (Imperial)</h4>
+                        <ul class="package-list">
+                            <li><strong>Banquete de Lujo:</strong> Buffet premium para 120 personas (entrada, plato fuerte, postre y bebidas ilimitadas).</li>
+                            <li><strong>Mesa de Recepción:</strong> Estación elegante de pasabocas variados y dulces finos.</li>
+                            <li><strong>Decoración Premium:</strong> 400 globos, entrada de lujo, photocall, luces LED y centros premium.</li>
+                            <li><strong>Show & Sonido:</strong> Sistema line array profesional, DJ, luces robóticas, máquina de humo y hora loca.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 2.000.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+            </div> <!-- Fin de la grilla de paquetes de buffet -->
+                        <!-- SUBSECCIÓN 3: SERVICIOS MODULARES Y COMPLEMENTOS -->
+            <h3 class="category-title">Servicios modulares y complementos</h3>
+            <div class="packages-grid">
+                
+                <!-- Tarjeta 7: Decoración Luxury -->
+                <div class="package-card border-purple">
+                    <div class="package-info">
+                        <div class="package-badge badge-purple">✨</div>
+                        <h4>Decoración Luxury</h4>
+                        <ul class="package-list">
+                            <li><strong>Arreglo Estructural:</strong> 250 globos premium, un arco temático grande y decoración de techo y paredes.</li>
+                            <li><strong>Mobiliario de Gala:</strong> Mesa principal elegante, mantelería fina y centros de mesa iluminados.</li>
+                            <li><strong>Fotografía & Luces:</strong> Estructura de Photocall decorativo acompañado de juegos de luces LED.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 600.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 8: Sonido Profesional -->
+                <div class="package-card border-yellow">
+                    <div class="package-info">
+                        <div class="package-badge badge-yellow">🎤</div>
+                        <h4>Sonido Profesional</h4>
+                        <ul class="package-list">
+                            <li><strong>Potencia de Audio:</strong> 6 bocinas profesionales de alta fidelidad operadas mediante consola profesional.</li>
+                            <li><strong>Show Visual:</strong> Sistema de luces LED rítmicas con efectos especiales y máquina de humo.</li>
+                            <li><strong>Staff Técnico:</strong> DJ en vivo encargado de las mezclas y micrófonos inalámbricos incluidos.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 550.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+                <!-- Tarjeta 9: Animación Full Party -->
+                <div class="package-card border-blue">
+                    <div class="package-info">
+                        <div class="package-badge badge-blue">🎉</div>
+                        <h4>Full Party</h4>
+                        <ul class="package-list">
+                            <li><strong>Conducción del Show:</strong> Animador profesional encargado de dirigir juegos y dinámicas grupales.</li>
+                            <li><strong>Pista de Baile:</strong> DJ en vivo acompañando la velada junto a un montaje de luces de fiesta.</li>
+                            <li><strong>Entretenimiento:</strong> Show de hora loca completo, efectos especiales básicos y accesorios luminosos.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 450.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+
+            </div> <!-- Fin de la grilla de servicios modulares -->
+
+        </div> <!-- Fin de la envoltura wrapper -->
+    </section> <!-- Fin de la sección general de paquetes -->
+            <!-- 8. FORMULARIO EMERGENTE DE CONTACTO (MODAL FLOTANTE) -->
+    <div id="contactModal" class="modal-overlay">
+        <div class="modal-card">
+            <!-- Botón de cierre (X) -->
+            <button class="close-modal" onclick="closeModal()">&times;</button>
+            
+            <div class="modal-header">
+                <h3>¿Tienes alguna duda?</h3>
+                <p>Contáctanos y responderemos todas tus preguntas de inmediato :)</p>
+            </div>
+            
+            <!-- Formulario Base con los inputs exactos del profesor -->
+            <form action="/enviar" method="POST" class="modal-form">
+                <div class="form-group">
+                    <label for="form-nombre">Nombre:</label>
+                    <input type="text" id="form-nombre" name="nombre" placeholder="Tu nombre completo" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-correo">Correo:</label>
+                    <input type="email" id="form-correo" name="correo" placeholder="ejemplo@correo.com" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="form-mensaje">Mensaje:</label>
+                    <textarea id="form-mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tus dudas sobre salones, precios o disponibilidad..." required></textarea>
+                </div>
+         
+                <button type="submit" class="btn-submit-form">Enviar Mensaje</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- LOGICA JAVASCRIPT PARA CONTROLAR LA VENTANA EMERGENTE -->
+    <script>
+        function openModal() {
+            document.getElementById('contactModal').classList.add('active');
+            document.body.style.overflow = 'hidden'; /* Detiene el scroll de la página trasera */
+        }
+
+        function closeModal() {
+            document.getElementById('contactModal').classList.remove('active');
+            document.body.style.overflow = 'auto'; /* Reactiva el scroll de la página */
+        }
+
+        // Cierra el formulario si el usuario hace clic afuera de la caja blanca
+        window.onclick = function(event) {
+            const modal = document.getElementById('contactModal');
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+    </script>
+    
+        <!-- 6. SECCIÓN LLAMADA A LA ACCIÓN (CTA MORADO) -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>¿Listo para celebrar tu evento?</h2>
+            <p>Contáctanos hoy y comienza a planear tu momento inolvidable</p>
+            <div class="cta-buttons">
+                <a href="tel:+573001234567" class="btn-cta-white">
+                    <span class="icon">📞</span> +57 300 123 4567
+                </a>
+                <a href="mailto:info@celebrabarranquilla.com" class="btn-cta-yellow">
+                    <span class="icon">✉️</span> info@celebrabarranquilla.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. FOOTER PRINCIPAL (FONDO OSCURO) -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            
+            <!-- Columna 1: Marca -->
+            <div class="footer-col">
+                <h3>CELEBRA</h3>
+                <p>Celebrando momentos inolvidables en Barranquilla desde hace más de 10 años.</p>
+            </div>
+
+            <!-- Columna 2: Enlaces Rápidos -->
+            <div class="footer-col">
+                <h3>Enlaces Rápidos</h3>
+                <ul class="footer-links">
+                    <li><a href="#nuestros-salones">Salones</a></li>
+                    <li><a href="#paquetes">Eventos</a></li>
+                    <li><a href="#nuestros-salones">Disponibilidad</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </div>
+
+            <!-- Columna 3: Información de Contacto -->
+            <div class="footer-col">
+                <h3>Contacto</h3>
+                <ul class="footer-contact">
+                    <li><span class="icon">📞</span> +57 300 123 4567</li>
+                    <li><span class="icon">✉️</span> info@celebrabarranquilla.com</li>
+                    <li><span class="icon">📍</span> Barranquilla, Colombia</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <!-- Barra Inferior de Copyright -->
+        <div class="footer-bottom">
+            <p>&copy; 2026 Celebra Barranquilla. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+
+
+</body>
+</html>
