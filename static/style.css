@@ -667,6 +667,166 @@ body {
     border-top: 5px solid #ff9800; /* Color naranja según el prototipo */
 }
 
+/* --- 8. ESTILOS DEL FORMULARIO EMERGENTE (MODAL) --- */
+
+/* Fondo oscuro translúcido que cubre toda la pantalla */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(13, 21, 32, 0.7); /* Tono oscuro a juego con tu footer */
+    backdrop-filter: blur(4px); /* Efecto difuminado de fondo moderno */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000; /* Asegura que flote por encima de menús o carruseles */
+    opacity: 0;
+    pointer-events: none; /* Invisible e interactivo solo cuando se activa */
+    transition: opacity 0.3s ease;
+}
+
+/* Clase que activa la visibilidad mediante JavaScript */
+.modal-overlay.active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Tarjeta Blanca Contenedora */
+.modal-card {
+    background-color: #ffffff;
+    width: 100%;
+    max-width: 500px;
+    border-radius: 16px;
+    padding: 40px;
+    position: relative;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    transform: translateY(-20px);
+    transition: transform 0.3s ease;
+}
+
+/* Efecto de animación al abrir la tarjeta */
+.modal-overlay.active .modal-card {
+    transform: translateY(0);
+}
+
+/* Botón de Cierre (X) */
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 24px;
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: #64748b;
+    cursor: pointer;
+    line-height: 1;
+    transition: color 0.2s;
+}
+
+.close-modal:hover {
+    color: #111111;
+}
+
+/* Encabezado del Formulario */
+.modal-header {
+    margin-bottom: 28px;
+    text-align: center;
+}
+
+.modal-header h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #111111;
+    margin-bottom: 8px;
+}
+
+.modal-header p {
+    font-size: 14px;
+    color: #64748b;
+    line-height: 1.4;
+}
+
+/* Estructura Interna del Formulario */
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #334155;
+}
+
+/* Estilizado de Inputs y Textarea */
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 16px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #111111;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #94a3b8;
+}
+
+/* Efecto de enfoque cuando el usuario escribe */
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #751e9f; /* Tu morado institucional */
+    box-shadow: 0 0 0 3px rgba(117, 30, 159, 0.15);
+}
+
+/* Textarea fija para evitar que rompa el diseño */
+.form-group textarea {
+    resize: none;
+}
+
+/* Botón de Envío */
+.btn-submit-form {
+    background-color: #751e9f; /* Color morado exacto de tu Hero */
+    color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    padding: 14px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    margin-top: 10px;
+}
+
+.btn-submit-form:hover {
+    background-color: #5c1d93;
+}
+
+.btn-submit-form:active {
+    transform: scale(0.98); /* Pequeño efecto de pulsación táctil */
+}
+
+/* Adaptación para pantallas pequeñas (Celulares) */
+@media (max-width: 550px) {
+    .modal-card {
+        max-width: 90%;
+        padding: 30px 20px;
+    }
+}
 
 /* --- 6. SECCIÓN CALL TO ACTION (CTA MORADO) --- */
 .cta-section {
