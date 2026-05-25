@@ -27,9 +27,9 @@ def home():
 
 
 # RUTA LOGIN
-@app.route('/login')
+@app.route('/registro')
 def login():
-    return render_template('userview.html')
+    return render_template('registro.html')
 
 
 # --- RUTA PARA PROCESAR EL FORMULARIO DEL PROFESOR ---
