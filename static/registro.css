@@ -62,3 +62,165 @@ body {
     background-color: #481475;
 }
 
+/* ==========================================
+   REGISTRO EN CELEBRA (FONDO MORADO)
+   ========================================== */
+.register-section {
+    background-color: #751e9f; /* Tu morado corporativo */
+    min-height: calc(100vh - 80px); /* Ocupa el resto de la pantalla debajo del header */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 60px 4%;
+    overflow: hidden;
+}
+
+.register-container {
+    max-width: 1200px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Divide la pantalla en dos partes iguales */
+    gap: 60px;
+    align-items: center;
+}
+
+/* Tarjeta Blanca del Formulario */
+.register-card {
+    background: #ffffff;
+    padding: 50px 40px;
+    border-radius: 40px; /* Bordes muy redondeados como tu captura */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.register-card h2 {
+    font-size: 2.2rem;
+    color: #111111;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.register-subtitle {
+    color: #555555;
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 35px;
+}
+
+/* Estilos de los inputs */
+.form-register {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: #888888;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+.form-register input {
+    background-color: #f7f7f7;
+    border: 1px solid #eeeeee;
+    padding: 16px 20px;
+    border-radius: 14px;
+    font-size: 1rem;
+    color: #333333;
+    transition: all 0.2s ease;
+}
+
+.form-register input:focus {
+    outline: none;
+    border-color: #751e9f;
+    background-color: #ffffff;
+    box-shadow: 0 0 0 4px rgba(117, 30, 159, 0.1);
+}
+
+/* Botón Morado de Registro */
+.btn-submit-register {
+    background-color: #751e9f;
+    color: #ffffff;
+    border: none;
+    padding: 16px 32px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    align-self: center; /* Centra el botón como en tu diseño */
+    min-width: 160px;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.btn-submit-register:hover {
+    background-color: #5c167d;
+}
+
+.btn-submit-register:active {
+    transform: scale(0.98);
+}
+
+/* ==========================================
+   BLOQUES ASIMÉTRICOS (GALERÍA DERECHA)
+   ========================================== */
+.register-gallery {
+    display: flex;
+    gap: 24px;
+    height: 100%;
+    align-items: center;
+}
+
+.reg-col {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    width: 50%;
+}
+
+/* Desplazamiento vertical asimétrico */
+.reg-col-left {
+    transform: translateY(-20px);
+}
+
+.reg-col-right {
+    transform: translateY(40px);
+}
+
+/* Contenedores de imágenes transparentes con tono morado sutil */
+.reg-block {
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    width: 100%;
+    transition: background 0.3s ease;
+}
+
+.reg-block:hover {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+/* Alturas exactas para dar el efecto de la imagen */
+.block-small { height: 160px; }
+.block-medium { height: 200px; }
+.block-large { height: 220px; }
+.block-xlarge { height: 280px; }
+
+/* Responsive para celulares y tablets */
+@media (max-width: 992px) {
+    .register-container {
+        grid-template-columns: 1fr; /* Pone el formulario arriba y los bloques abajo */
+        gap: 40px;
+    }
+    .register-gallery {
+        display: none; /* Oculta los bloques decorativos en móviles para ahorrar espacio */
+    }
+    .register-card {
+        padding: 35px 24px;
+        border-radius: 24px;
+    }
+}
