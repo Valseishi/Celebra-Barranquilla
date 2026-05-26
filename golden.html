@@ -3,14 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Celebra Barranquilla</title>
-    <link rel="stylesheet" href="static/index.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <title>Salón Celebra Golden - Detalles</title>
+    <link rel="stylesheet" href="static/golden.css">
 </head>
 <body>
-    
+
     <!-- 1. HEADER (Fondo Blanco) -->
     <header class="header">
         <div class="logo">
@@ -19,112 +16,141 @@
         <nav class="navbar">
             <a href="#">Paquetes</a>
         </nav>
-        <a href="registro.html" class="btn-register">
-            Registrarme
+        <a href="index.html" class="btn-register">
+            Volver al inicio
         </a>
     </header>
 
-    <!-- 2. HERO SECTION (Fondo Morado #751e9f) -->
-    <main class="hero">
-        <div class="hero-container">
+    <!-- CONTENEDOR PRINCIPAL SEMÁNTICO -->
+    <main class="salon-details-main">
+        <div class="salon-container">
 
-            <div class="hero-text">
-                <h1>Celebra Tus Momentos Inolvidables</h1>
-                <p>Salones y servicios para todo tipo de eventos, con espacios cómodos, atención cercana y todo lo necesario para celebrar sin preocupaciones.</p>
-                <div class="hero-buttons">
-                    <a href="#nuestros-salones" class="btn-yellow">Ver salones</a>
-                    <a href="javascript:void(0)" class="btn-outline" onclick="openModal()">Contactanos</a>
-                </div>
-            </div>
+            <!-- NUEVO: Título del Salón ubicado antes de las imágenes -->
+            <h1 class="salon-main-title">Salon Celebra Golden</h1>
 
-            <!-- Galería de Fotos Asimétrica -->
-            <div class="hero-gallery">
-                <!-- Columna Izquierda (Va más arriba) -->
-                <div class="gallery-col col-left">
-                    <div class="gallery-item">
-                        <img src="static/evento1.png" alt="Evento1">
-                    </div>
-                    <div class="gallery-item">
-                        <img src="static/evento3.png" alt="Evento3">
-                    </div>
-                </div>
+            <!-- Banner / Galería de Fotos del Salón con Botones -->
+            <div class="salon-gallery-wrapper">
+                <!-- Botón Izquierdo -->
+                <button class="gallery-btn btn-prev" id="galleryPrevBtn" aria-label="Anterior">&lt;</button>
                 
-                <!-- Columna Derecha (Desplazada hacia abajo) -->
-                <div class="gallery-col col-right">
-                    <div class="gallery-item">
-                        <img src="static/evento2.png" alt="Evento2">
+                <!-- El riel de imágenes -->
+                <div class="salon-gallery-track" id="salonGalleryTrack">
+                    <img src="static/g1.png" alt="Vista del Salón 1">
+                    <img src="static/g2.png" alt="Vista del Salón 2">
+                    <img src="static/g3.png" alt="Vista del Salón 3">
+                    <img src="static/g4.png" alt="Vista del Salón 4">
+                </div>
+
+                <!-- Botón Derecho -->
+                <button class="gallery-btn btn-next" id="galleryNextBtn" aria-label="Siguiente">&gt;</button>
+            </div>
+
+            <!-- Grilla de Información: Descripción y Reserva -->
+            <div class="details-grid">
+                <!-- TARJETA IZQUIERDA: DESCRIPCIÓN -->
+                <div class="description-card card">
+                    <div class="card-header">
+                        <span class="icon-star-filled">⭐</span>
+                        <h3>Descripción</h3>
                     </div>
-                    <div class="gallery-item">
-                        <img src="static/evento4.png" alt="Evento4">
+                    
+                    <!-- Bloque intermedio: Texto + Info técnica (Duración/Capacidad) -->
+                    <div class="description-body-wrapper">
+                        <p class="description-text">Un salón moderno y elegante diseñado para celebraciones exclusivas y eventos sociales de alto nivel. Su ambiente sofisticado y decoración contemporánea lo convierten en una excelente opción para bodas, aniversarios y fiestas premium.</p>
+                        
+                        <div class="tech-info-specs">
+                            <div class="spec-item">
+                                <strong>Duración</strong>
+                                <span>5 horas</span>
+                            </div>
+                            <div class="spec-item">
+                                <strong>Capacidad</strong>
+                                <span>200 personas</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h4>Detalles</h4>
+                    <div class="details-list-grid">
+                        <ul>
+                            <li>Área acondicionado central</li>
+                            <li>Tarima principal</li>
+                            <li>Iluminación LED inteligente</li>
+                            <li>Zona de baile amplia</li>
+                            <li>Pantalla gigante para presentaciones</li>
+                        </ul>
+                        <ul>
+                            <li>Parqueadero privado</li>
+                            <li>Área para buffet</li>
+                            <li>Baños modernos</li>
+                            <li>Acceso para personas con movilidad reducida</li>
+                            <li>WiFi para invitados</li>
+                        </ul>
+                    </div>
+                    <div class="btn-container-center">
+                        <!-- El href apunta al ID de la sección a la que queremos viajar -->
+                        <a href="#seccion-paquetes" class="add-package-btn" style="text-decoration: none; display: inline-block;">Añadir paquete</a>
+                    </div>
+
+                </div>
+
+                <!-- TARJETA DERECHA: RESERVA -->
+                <div class="reservation-card card">
+                    <div class="card-header">
+                        <div class="package-icon purple-square"></div>
+                        <h3>Reserva</h3>
+                    </div>
+                    
+                    <div class="reservation-meta-info">
+                        <span class="meta-label">Fecha</span>
+                        <span class="meta-sub">Paquetes añadidos</span>
+                    </div>
+                    
+                    <div class="reservation-price-block">
+                        <p class="price-label">Valor de reserva</p>
+                        <p class="reservation-price">$1.000.000 COP</p>
+                    </div>
+                    
+                    <button class="reserve-btn">RESERVAR</button>
+                    
+                    <div class="location-details-block">
+                        <p class="location-title">Ubicación 📍</p>
+                        <p class="location-address">Cl. 84 #28-70, Barranquilla, Atlántico — Zona Norte</p>
+                    </div>
+                    
+                    <div class="map-placeholder">
+                        <img src="https://n9.cl/51ps9o" alt="Mapa de ubicación">
                     </div>
                 </div>
             </div>
 
-        </div>
-    </main>
-
-    <!-- 3. SECCIÓN NUESTROS SERVICIOS (Fondo Blanco) -->
-    <section class="services-section">
-        <div class="services-header">
-            <h2>Nuestros Servicios</h2>
-            <p>Organizamos todo tipo de eventos sociales y corporativos</p>
-        </div>
-
-        <div class="services-container">
-            
-            <!-- Tarjeta 1: Eventos Sociales -->
-            <div class="service-card card-purple">
-                <div class="service-info">
-                    <div class="service-icon icon-purple"></div>
-                    <h3>Eventos Sociales</h3>
-                    <p class="service-desc">Bodas, quinceañeros, cumpleaños y aniversarios con decoración personalizada.</p>
-                    <ul class="service-list">
-                        <li>Decoración temática</li>
-                        <li>Buffet y menús especiales</li>
-                        <li>Sonido e iluminación</li>
-                    </ul>
+            <!-- SECCIÓN: REGLAS GENERALES -->
+            <div class="rules-section card">
+                <div class="card-header">
+                    <span class="icon-warning-filled"></span>
+                    <h3>REGLAS GENERALES</h3>
                 </div>
-                <div class="service-image">
-                    <img src="static/servicio1.png" alt="Eventos sociales">
+                <div class="rules-grid">
+                    <ul>
+                        <li>El tiempo reservado para cada salón debe respetarse según el horario acordado previamente con administración.</li>
+                        <li>No está permitido sobrepasar la capacidad máxima establecida de cada salón por motivos de seguridad.</li>
+                        <li>En caso de cancelación de la reserva, el cliente debe informar con mínimo 15 días de anticipación. Después de este plazo, deberá cancelar con una penalidad de $100.000 COP.</li>
+                        <li>Si la decoración será realizada por personal externo o independiente, esta deberá hacerse antes de la hora de inicio de la reserva para evitar retrasos en el evento.</li>
+                        <li>Los clientes deben ser puntuales tanto en el inicio como en la finalización del evento para garantizar la correcta organización de las reservas siguientes.</li>
+                    </ul>
+                    <ul>
+                        <li>El menú y la decoración seleccionada con Celebra Barranquilla deben especificarse con anticipación para asegurar disponibilidad y preparación adecuada.</li>
+                        <li>Está prohibido causar daños a las instalaciones, mobiliario o equipos del salón.</li>
+                        <li>No se permite el ingreso de elementos peligrosos, sustancias inflamables o pólvora dentro de las instalaciones.</li>
+                        <li>Toda modificación en la reserva debe ser consultada previamente con administración.</li>
+                        <li>Celebra Barranquilla se reserva el derecho de suspender actividades que afecten la seguridad, el orden o el bienestar de los asistentes.</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- Tarjeta 2: Eventos Corporativos -->
-            <div class="service-card card-orange">
-                <div class="service-info">
-                    <div class="service-icon icon-orange"></div>
-                    <h3>Eventos Corporativos</h3>
-                    <p class="service-desc">Reuniones empresariales y celebraciones corporativas profesionales.</p>
-                    <ul class="service-list">
-                        <li>Equipamiento audiovisual</li>
-                        <li>Catering ejecutivo</li>
-                        <li>Espacios adaptables</li>
-                    </ul>
-                </div>
-                <div class="service-image">
-                    <img src="static/servicio2.png" alt="Eventos corporativos">
-                </div>
-            </div>
+        </div> <!-- Fin de .salon-container -->
+    </main> <!-- Fin de .salon-details-main -->
 
-            <!-- Tarjeta 3: Ubicaciones Estratégicas -->
-            <div class="service-card card-blue">
-                <div class="service-info">
-                    <div class="service-icon icon-blue"></div>
-                    <h3>Ubicaciones Estratégicas</h3>
-                    <p class="service-desc">5 salones en zonas norte, sur y este de Barranquilla.</p>
-                    <ul class="service-list">
-                        <li>Fácil acceso</li>
-                        <li>Parqueadero amplio</li>
-                        <li>Zonas seguras</li>
-                    </ul>
-                </div>
-                <div class="service-image">
-                    <img src="static/servicio3.png" alt="ubicaciones estrategicas">
-                </div>
-            </div>
-
-        </div>
-    </section>
 
     <!-- 4. SECCIÓN NUESTROS SALONES (Con Carrusel Deslizante) -->
     <!-- Busca el inicio de la sección de salones y déjalo así: -->
@@ -152,20 +178,6 @@
                         <p class="room-meta"><span class="icon">📍</span> Zona Sur</p>
                         <p class="room-meta"><span class="icon">👥</span> 250 personas</p>
                         <a href="imperial.html" class="btn-details">Ver Detalles</a>
-                    </div>
-                </div>
-
-                <!-- Tarjeta 2: Salón Celebra Golden -->
-                <div class="room-card">
-                    <div class="room-image">
-                        <span class="badge-available">Disponible</span>
-                        <img src="static/salon1.png" alt="salon celebra Golden">
-                    </div>
-                    <div class="room-info">
-                        <h3>Salón Celebra Golden</h3>
-                        <p class="room-meta"><span class="icon">📍</span> Zona Norte</p>
-                        <p class="room-meta"><span class="icon">👥</span> 200 personas</p>
-                        <a href="golden.html" class="btn-details">Ver Detalles</a>
                     </div>
                 </div>
 
@@ -242,7 +254,7 @@
     </script>
 
         <!-- 5. SECCIÓN PAQUETES DE EVENTOS -->
-    <section class="packages-section" id="paquetes">
+    <section class="packages-section"  id="seccion-paquetes">
         
         <!-- Encabezado Principal -->
         <div class="packages-header">
@@ -457,74 +469,6 @@
         </div> <!-- Fin de la envoltura wrapper -->
     </section> <!-- Fin de la sección general de paquetes -->
 
-            <!-- 8. FORMULARIO EMERGENTE DE CONTACTO (MODAL FLOTANTE) -->
-
-    <div id="contactModal" class="modal-overlay">
-        <div class="modal-card">
-            <!-- Botón de Cierre con tu clase original -->
-            <button class="close-modal" onclick="closeModal()">&times;</button>
-            
-            <div class="modal-header">
-                <h3>Contáctame</h3>
-                <p>Déjanos tus datos y organizaremos tu evento soñado.</p>
-            </div>
-
-            <!-- El formulario apunta a FormSubmit usando tus estilos .modal-form -->
-            <form action="https://formsubmit.co/perezvillalbavalerie@gmail.com" method="POST" class="modal-form">
-                
-                <div class="form-group">
-                    <label>Nombre</label>
-                    <input type="text" name="nombre" placeholder="Tu Nombre" required>
-                </div>
-    
-                <div class="form-group">
-                    <label>Correo</label>
-                    <input type="email" name="correo" placeholder="Tu Correo" required>
-                </div>
-    
-                <div class="form-group">
-                    <label>Mensaje</label>
-                    <textarea name="mensaje" rows="5" placeholder="Cuéntanos sobre tu evento..." required></textarea>
-                </div>
-    
-                <!-- Parámetros ocultos del profesor -->
-                <input type="hidden" name="_subject" value="Nuevo mensaje desde GitHub Pages">
-                <input type="hidden" name="_captcha" value="false">
-                
-                <!-- NOTA: Cambia 'tu-usuario' y 'tu-repositorio' por los tuyos reales de GitHub -->
-                <input type="hidden" name="_next" value="https://valseishi.github.io/Celebra-Barranquilla/index.html">
-    
-                <!-- Tu botón original con su estilo morado -->
-                <button type="submit" class="btn-submit-form">
-                    Enviar mensaje
-                </button>
-    
-            </form>
-        </div>
-    </div>
-
-
-    <!-- LOGICA JAVASCRIPT PARA CONTROLAR LA VENTANA EMERGENTE -->
-    <script>
-        function openModal() {
-            document.getElementById('contactModal').classList.add('active');
-            document.body.style.overflow = 'hidden'; /* Detiene el scroll de la página trasera */
-        }
-
-        function closeModal() {
-            document.getElementById('contactModal').classList.remove('active');
-            document.body.style.overflow = 'auto'; /* Reactiva el scroll de la página */
-        }
-
-        // Cierra el formulario si el usuario hace clic afuera de la caja blanca
-        window.onclick = function(event) {
-            const modal = document.getElementById('contactModal');
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-    </script>
-    
         <!-- 6. SECCIÓN LLAMADA A LA ACCIÓN (CTA MORADO) -->
     <section class="cta-section">
         <div class="cta-container">
@@ -579,6 +523,35 @@
             <p>&copy; 2026 Celebra Barranquilla. Todos los derechos reservados.</p>
         </div>
     </footer>
+    <!-- LÓGICA DE MOVIMIENTO POR BOTONES (GALERÍA SUPERIOR ANCHO COMPLETO) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Seleccionamos el riel de las fotos y los dos botones por sus IDs únicos
+            const galleryTrack = document.getElementById('salonGalleryTrack');
+            const galleryPrevBtn = document.getElementById('galleryPrevBtn');
+            const galleryNextBtn = document.getElementById('galleryNextBtn');
+
+            if (galleryTrack && galleryPrevBtn && galleryNextBtn) {
+                
+                // EVENTO: Clic en la Flecha Derecha (Siguiente)
+                galleryNextBtn.addEventListener('click', () => {
+                    galleryTrack.scrollBy({
+                        left: window.innerWidth, // Avanza exactamente el ancho total de la pantalla
+                        behavior: 'smooth'       // Movimiento fluido premium tipo Figma
+                    });
+                });
+
+                // EVENTO: Clic en la Flecha Izquierda (Anterior)
+                galleryPrevBtn.addEventListener('click', () => {
+                    galleryTrack.scrollBy({
+                        left: -window.innerWidth, // Retrocede exactamente el ancho total de la pantalla
+                        behavior: 'smooth'        // Movimiento fluido premium tipo Figma
+                    });
+                });
+            }
+        });
+    </script>
+
 
 
 
