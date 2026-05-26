@@ -10,6 +10,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+    <!-- SCRIPT PARA LEER EL NOMBRE DE USUARIO REAL -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Buscamos el nombre que guardamos en la memoria del navegador durante el registro
+            const nombreGuardado = localStorage.getItem('currentUser');
+            const contenedorNombre = document.getElementById('user-display');
+
+            // Si el script encuentra el nombre, lo pinta en la pantalla
+            if (nombreGuardado && contenedorNombre) {
+                contenedorNombre.textContent = nombreGuardado;
+            } else if (contenedorNombre) {
+                contenedorNombre.textContent = "Usuario"; 
+            }
+        });
+    </script>
+</body>
+</html>
+
 <body>
 
     <!-- 1. HEADER LOGUEADO -->
@@ -32,7 +50,7 @@
     <main class="hero">
         <div class="hero-container">
             <div class="hero-text">
-                <h1>¡Bienvenido <span style="color: #fcd85a;">Jose Ruiz</span>!</h1>
+                <h1>¡Bienvenido, <span id="user-display">Juan Pérez</span></h1>
                 <p>¿Qué evento quieres celebrar?<br>Estamos aquí para ayudarte a planear cada detalle.</p>
                 <div class="hero-buttons">
                     <a href="#salones" class="btn-yellow">Salones disponibles</a>
