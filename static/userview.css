@@ -96,6 +96,11 @@ html, body {
     flex: 1;
     color: white;
 }
+/* Color amarillo oficial de Celebra para resaltar elementos */
+.text-yellow {
+    color: #ffd700; /* Puedes cambiarlo por #ffcc00 si tu amarillo es un tono más oscuro */
+    font-weight: 700; /* Hace que el nombre se vea un poco más grueso y destaque */
+}
 
 .hero-text h1 {
     font-size: 52px;

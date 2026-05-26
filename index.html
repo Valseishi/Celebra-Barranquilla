@@ -456,38 +456,53 @@
 
         </div> <!-- Fin de la envoltura wrapper -->
     </section> <!-- Fin de la sección general de paquetes -->
+    
             <!-- 8. FORMULARIO EMERGENTE DE CONTACTO (MODAL FLOTANTE) -->
+
     <div id="contactModal" class="modal-overlay">
         <div class="modal-card">
-            <!-- Botón de cierre (X) -->
+            <!-- Botón de Cierre con tu clase original -->
             <button class="close-modal" onclick="closeModal()">&times;</button>
             
             <div class="modal-header">
-                <h3>¿Tienes alguna duda?</h3>
-                <p>Contáctanos y responderemos todas tus preguntas de inmediato :)</p>
+                <h3>Contáctame</h3>
+                <p>Déjanos tus datos y organizaremos tu evento soñado.</p>
             </div>
-            
-            <!-- Formulario Base con los inputs exactos del profesor -->
-            <form action="/enviar" method="POST" class="modal-form">
-                <div class="form-group">
-                    <label for="form-nombre">Nombre:</label>
-                    <input type="text" id="form-nombre" name="nombre" placeholder="Tu nombre completo" required>
-                </div>
+
+            <!-- El formulario apunta a FormSubmit usando tus estilos .modal-form -->
+            <form action="https://formsubmit.co" method="POST" class="modal-form">
                 
                 <div class="form-group">
-                    <label for="form-correo">Correo:</label>
-                    <input type="email" id="form-correo" name="correo" placeholder="ejemplo@correo.com" required>
+                    <label>Nombre</label>
+                    <input type="text" name="nombre" placeholder="Tu Nombre" required>
                 </div>
-                
+    
                 <div class="form-group">
-                    <label for="form-mensaje">Mensaje:</label>
-                    <textarea id="form-mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tus dudas sobre salones, precios o disponibilidad..." required></textarea>
+                    <label>Correo</label>
+                    <input type="email" name="correo" placeholder="Tu Correo" required>
                 </div>
-         
-                <button type="submit" class="btn-submit-form">Enviar Mensaje</button>
+    
+                <div class="form-group">
+                    <label>Mensaje</label>
+                    <textarea name="mensaje" rows="5" placeholder="Cuéntanos sobre tu evento..." required></textarea>
+                </div>
+    
+                <!-- Parámetros ocultos del profesor -->
+                <input type="hidden" name="_subject" value="Nuevo mensaje desde GitHub Pages">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <!-- NOTA: Cambia 'tu-usuario' y 'tu-repositorio' por los tuyos reales de GitHub -->
+                <input type="hidden" name="_next" value="https://github.io">
+    
+                <!-- Tu botón original con su estilo morado -->
+                <button type="submit" class="btn-submit-form">
+                    Enviar mensaje
+                </button>
+    
             </form>
         </div>
     </div>
+
 
     <!-- LOGICA JAVASCRIPT PARA CONTROLAR LA VENTANA EMERGENTE -->
     <script>
