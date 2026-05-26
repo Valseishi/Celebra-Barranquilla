@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Celebra - Panel de Usuario</title>
     <!-- Enlace dinámico corregido para Flask -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='userview.css') }}">
+    <link rel="stylesheet" href="static/userview.css">
     <link rel="preconnect" href="https://googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <!-- 1. HEADER LOGUEADO -->
     <header class="header">
         <div class="logo">
-            <img src="{{ url_for('static', filename='logo.png') }}" alt="Logo Celebra">
+             <img src="static/logo.png" alt="Logo Celebra">
         </div>
         <nav class="navbar">
             <a href="#salones">Salones</a>
@@ -23,7 +23,7 @@
             <a href="#fechas" style="margin-right: 30px;">Fechas</a>
         </nav>
         <!-- Botón de salir apuntando a la desconexión -->
-        <a href="/" class="btn-register" style="background-color: #ef4444;">
+        <a href="index.html" class="btn-register" style="background-color: #ef4444;">
             Cerrar Sesión
         </a>
     </header>
@@ -43,7 +43,7 @@
             <!-- Galería de Fotos del Prototipo Real usando tus nuevas imágenes -->
             <div class="hero-gallery">
                 <div class="hero-stars">
-                <img src="{{ url_for('static', filename='estrellas.png') }}" alt="Estrellas Decorativas">
+                <img src="static/estrellas.png" alt="estrellas">
             </div>
             </div>
         </div>
@@ -66,7 +66,7 @@
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
-                        <img src="{{ url_for('static', filename='salon_imperial.png') }}" alt="Salón Celebra Imperial">
+                        <img src="static/salon_imperial.png" alt="salon celebra imperial">
                     </div>
                     <div class="room-info">
                         <h3>Salón Celebra Imperial</h3>
@@ -80,7 +80,7 @@
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
-                        <img src="{{ url_for('static', filename='salon1.png') }}" alt="Salón Celebra Golden">
+                        <img src="static/salon1.png" alt="salon celebra Golden">
                     </div>
                     <div class="room-info">
                         <h3>Salón Celebra Golden</h3>
@@ -94,7 +94,7 @@
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
-                        <img src="{{ url_for('static', filename='salon2.png') }}" alt="Salón Celebra Élite">
+                        <img src="static/salon2.png" alt="salon celebra elite">
                     </div>
                     <div class="room-info">
                         <h3>Salón Celebra Élite</h3>
@@ -108,7 +108,7 @@
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
-                        <img src="{{ url_for('static', filename='salon3.png') }}" alt="Salón Celebra Sunset">
+                        <img src="static/salon3.png" alt="salon celebra Sunset">
                     </div>
                     <div class="room-info">
                         <h3>Salón Celebra Sunset</h3>
@@ -122,7 +122,7 @@
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
-                        <img src="{{ url_for('static', filename='salon4.png') }}" alt="Salón Celebra Alegría">
+                        <img src="static/salon1.png" alt="salon celebra alegria">
                     </div>
                     <div class="room-info">
                         <h3>Salón Celebra Alegría</h3>
