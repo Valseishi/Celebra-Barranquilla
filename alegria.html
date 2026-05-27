@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Salón Celebra Golden - Detalles</title>
+    <title>Salón Celebra Alegría - Detalles</title>
+    <!-- Enlazado a tu archivo CSS principal unificado -->
     <link rel="stylesheet" href="static/salones.css">
 </head>
 <body>
@@ -25,20 +26,20 @@
     <main class="salon-details-main">
         <div class="salon-container">
 
-            <!-- NUEVO: Título del Salón ubicado antes de las imágenes -->
-            <h1 class="salon-main-title">Salon Celebra Golden</h1>
+            <!-- Título del Salón ubicado antes de las imágenes -->
+            <h1 class="salon-main-title">Salon Celebra Alegría</h1>
 
-            <!-- Banner / Galería de Fotos del Salón con Botones -->
+            <!-- Banner / Galería de Fotos del Salón con Botones Flotantes -->
             <div class="salon-gallery-wrapper">
                 <!-- Botón Izquierdo -->
                 <button class="gallery-btn btn-prev" id="galleryPrevBtn" aria-label="Anterior">&lt;</button>
                 
-                <!-- El riel de imágenes -->
+                <!-- El riel de imágenes adaptado a la estructura local de Alegría -->
                 <div class="salon-gallery-track" id="salonGalleryTrack">
-                    <img src="static/g1.png" alt="Vista del Salón 1">
-                    <img src="static/g2.png" alt="Vista del Salón 2">
-                    <img src="static/g3.png" alt="Vista del Salón 3">
-                    <img src="static/g4.png" alt="Vista del Salón 4">
+                    <img src="static/a1.png" alt="Vista del Salón Alegría 1">
+                    <img src="static/a2.png" alt="Vista del Salón Alegría 2">
+                    <img src="static/a3.png" alt="Vista del Salón Alegría 3">
+                    <img src="static/a4.png" alt="Vista del Salón Alegría 4">
                 </div>
 
                 <!-- Botón Derecho -->
@@ -54,9 +55,9 @@
                         <h3>Descripción</h3>
                     </div>
                     
-                    <!-- Bloque intermedio: Texto + Info técnica (Duración/Capacidad) -->
+                    <!-- Bloque intermedio: Texto + Info técnica de Alegría -->
                     <div class="description-body-wrapper">
-                        <p class="description-text">Un salón moderno y elegante diseñado para celebraciones exclusivas y eventos sociales de alto nivel. Su ambiente sofisticado y decoración contemporánea lo convierten en una excelente opción para bodas, aniversarios y fiestas premium.</p>
+                        <p class="description-text">Salón acogedor y funcional enfocado en eventos familiares y celebraciones accesibles. Ofrece un ambiente cómodo y organizado para reuniones sociales y actividades comunitarias.</p>
                         
                         <div class="tech-info-specs">
                             <div class="spec-item">
@@ -65,7 +66,7 @@
                             </div>
                             <div class="spec-item">
                                 <strong>Capacidad</strong>
-                                <span>200 personas</span>
+                                <span>80 personas</span>
                             </div>
                         </div>
                     </div>
@@ -73,28 +74,24 @@
                     <h4>Detalles</h4>
                     <div class="details-list-grid">
                         <ul>
-                            <li>Área acondicionado central</li>
-                            <li>Tarima principal</li>
-                            <li>Iluminación LED inteligente</li>
-                            <li>Zona de baile amplia</li>
-                            <li>Pantalla gigante para presentaciones</li>
+                            <li>Decoración básica incluida</li>
+                            <li>Espacio para buffet</li>
+                            <li>Zona principal climatizada</li>
+                            <li>Iluminación decorativa</li>
                         </ul>
                         <ul>
-                            <li>Parqueadero privado</li>
-                            <li>Área para buffet</li>
-                            <li>Baños modernos</li>
-                            <li>Acceso para personas con movilidad reducida</li>
-                            <li>WiFi para invitados</li>
+                            <li>Sonido ambiental</li>
+                            <li>Área para animación infantil</li>
+                            <li>Mesas y sillas completas</li>
+                            <li>Acceso sencillo y seguro</li>
                         </ul>
                     </div>
                     <div class="btn-container-center">
-                        <!-- El href apunta al ID de la sección a la que queremos viajar -->
                         <a href="#seccion-paquetes" class="add-package-btn" style="text-decoration: none; display: inline-block;">Añadir paquete</a>
                     </div>
-
                 </div>
 
-                <!-- TARJETA DERECHA: RESERVA -->
+                <!-- TARJETA DERECHA: RESERVA (Con los datos de Alegría) -->
                 <div class="reservation-card card">
                     <div class="card-header">
                         <div class="package-icon purple-square"></div>
@@ -108,18 +105,18 @@
                     
                     <div class="reservation-price-block">
                         <p class="price-label">Valor de reserva</p>
-                        <p class="reservation-price">$1.000.000 COP</p>
+                        <p class="reservation-price">\$480.000 COP</p> <!-- Precio de Alegría -->
                     </div>
                     
                     <button class="reserve-btn">RESERVAR</button>
                     
                     <div class="location-details-block">
                         <p class="location-title">Ubicación 📍</p>
-                        <p class="location-address">Cl. 84 #28-70, Barranquilla, Atlántico — Zona Norte</p>
+                        <p class="location-address">Cra. 20 #40-44, Barranquilla, Atlántico — Oriente</p>
                     </div>
                     
                     <div class="map-placeholder">
-                        <img src="https://n9.cl/51ps9o" alt="Mapa de ubicación">
+                        <img src="https://n9.cl" alt="Mapa de ubicación Alegría">
                     </div>
                 </div>
             </div>
@@ -134,7 +131,7 @@
                     <ul>
                         <li>El tiempo reservado para cada salón debe respetarse según el horario acordado previamente con administración.</li>
                         <li>No está permitido sobrepasar la capacidad máxima establecida de cada salón por motivos de seguridad.</li>
-                        <li>En caso de cancelación de la reserva, el cliente debe informar con mínimo 15 días de anticipación. Después de este plazo, deberá cancelar con una penalidad de $100.000 COP.</li>
+                        <li>En caso de cancelación de la reserva, el cliente debe informar con mínimo 15 días de anticipación. Después de este plazo, deberá cancelar una penalidad de \$50.000 COP.</li>
                         <li>Si la decoración será realizada por personal externo o independiente, esta deberá hacerse antes de la hora de inicio de la reserva para evitar retrasos en el evento.</li>
                         <li>Los clientes deben ser puntuales tanto en el inicio como en la finalización del evento para garantizar la correcta organización de las reservas siguientes.</li>
                     </ul>
@@ -149,25 +146,19 @@
             </div>
 
         </div> <!-- Fin de .salon-container -->
-    </main> <!-- Fin de .salon-details-main -->
+    </main>
 
-
-    <!-- 4. SECCIÓN NUESTROS SALONES (Con Carrusel Deslizante) -->
-    <!-- Busca el inicio de la sección de salones y déjalo así: -->
+    <!-- 4. SECCIÓN NUESTROS SALONES (Carrusel Deslizante de Recomendados) -->
     <section class="rooms-section" id="nuestros-salones">
         <div class="rooms-header">
             <h2>Nuestros Salones</h2>
             <p>Espacios elegantes para todo tipo de celebraciones</p>
         </div>
-
         <div class="carousel-wrapper">
-            <!-- Botón de Control Izquierdo -->
             <button class="carousel-btn btn-prev" id="prevBtn" aria-label="Anterior">&lt;</button>
             
-            <!-- Contenedor Deslizante de las Tarjetas -->
             <div class="rooms-container" id="carouselTrack">
-                
-                <!-- Tarjeta 1: Salón Celebra Imperial -->
+                <!-- Tarjeta 1: Imperial -->
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
@@ -180,8 +171,7 @@
                         <a href="imperial.html" class="btn-details">Ver Detalles</a>
                     </div>
                 </div>
-
-                <!-- Tarjeta 3: Salón Celebra Élite -->
+                <!-- Tarjeta 2: Élite -->
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
@@ -194,21 +184,19 @@
                         <a href="elite.html" class="btn-details">Ver Detalles</a>
                     </div>
                 </div>
-
-                <!-- Tarjeta 4: Salón Celebra Sunset -->
+                <!-- Tarjeta 3: Golden -->
                 <div class="room-card">
                     <div class="room-image">
                         <span class="badge-available">Disponible</span>
-                        <img src="static/salon3.png" alt="salon celebra Sunset">
+                        <img src="static/salon1.png" alt="salon celebra golden">
                     </div>
                     <div class="room-info">
-                        <h3>Salón Celebra Sunset</h3>
-                        <p class="room-meta"><span class="icon">📍</span> Riomar</p>
-                        <p class="room-meta"><span class="icon">👥</span> 180 personas</p>
-                        <a href="sunset.html" class="btn-details">Ver Detalles</a>
+                        <h3>Salón Celebra Golden</h3>
+                        <p class="room-meta"><span class="icon">📍</span> Zona Norte</p>
+                        <p class="room-meta"><span class="icon">👥</span> 200 personas</p>
+                        <a href="golden.html" class="btn-details">Ver Detalles</a>
                     </div>
                 </div>
-
                 <!-- Tarjeta 5: Salón Celebra Alegría -->
                 <div class="room-card">
                     <div class="room-image">
@@ -222,52 +210,25 @@
                         <a href="alegria.html" class="btn-details">Ver Detalles</a>
                     </div>
                 </div>
-
             </div>
-
             <!-- Botón de Control Derecho -->
-                        <!-- Botón de Control Derecho -->
             <button class="carousel-btn btn-next" id="nextBtn" aria-label="Siguiente">&gt;</button>
         </div>
     </section>
 
-    <!-- CONTROL LÓGICO DEL CARRUSEL -->
-    <script>
-        const track = document.getElementById('carouselTrack');
-        const prevBtn = document.getElementById('prevBtn');
-        const nextBtn = document.getElementById('nextBtn');
-
-        // Calcula el tamaño exacto del desplazamiento tomando en cuenta la tarjeta y el espacio (gap)
-        const getScrollAmount = () => {
-            const card = document.querySelector('.room-card');
-            const gap = 24; 
-            return card ? card.offsetWidth + gap : 300;
-        };
-
-        nextBtn.addEventListener('click', () => {
-            track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
-        });
-
-        prevBtn.addEventListener('click', () => {
-            track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
-        });
-    </script>
-
-        <!-- 5. SECCIÓN PAQUETES DE EVENTOS -->
-    <section class="packages-section"  id="seccion-paquetes">
-        
+    <!-- 5. SECCIÓN PAQUETES DE EVENTOS -->
+    <section class="packages-section" id="seccion-paquetes">
         <!-- Encabezado Principal -->
         <div class="packages-header">
             <h2>Paquetes de Eventos</h2>
             <p>Organizamos todo tipo de eventos sociales y corporativos</p>
         </div>
-
         <div class="packages-wrapper">
-            
+                        
             <!-- SUBSECCIÓN 1: PAQUETES COMPLETOS -->
             <h3 class="category-title">Paquetes completos</h3>
             <div class="packages-grid">
-                
+                                
                 <!-- Tarjeta 1: Paquete Básico -->
                 <div class="package-card border-purple">
                     <div class="package-info">
@@ -330,12 +291,12 @@
                         <a href="#" class="btn-more">Ver +</a>
                     </div>
                 </div>
-
             </div> <!-- Fin de la grilla de paquetes completos -->
-                        <!-- SUBSECCIÓN 2: PAQUETES DE BUFFET Y PASABOCAS -->
+                        
+            <!-- SUBSECCIÓN 2: PAQUETES DE BUFFET Y PASABOCAS -->
             <h3 class="category-title">Paquetes de buffet y pasabocas</h3>
             <div class="packages-grid">
-                
+                                
                 <!-- Tarjeta 4: Buffet Clásico -->
                 <div class="package-card border-purple">
                     <div class="package-info">
@@ -357,7 +318,7 @@
                     </div>
                 </div>
 
-                <!-- Tarjeta 5: Buffet Premium (Presentado como Completo) -->
+                <!-- Tarjeta 5: Buffet Premium -->
                 <div class="package-card border-orange">
                     <div class="package-info">
                         <div class="package-badge badge-gray">🍗</div>
@@ -377,8 +338,48 @@
                         <a href="#" class="btn-more">Ver +</a>
                     </div>
                 </div>
+                <!-- Tarjeta 6: Paquete Imperial -->
+                <div class="package-card border-blue">
+                    <div class="package-info">
+                        <div class="package-badge badge-gray">👑</div>
+                        <h4>Especial (Imperial)</h4>
+                        <ul class="package-list">
+                            <li><strong>Banquete de Lujo:</strong> Buffet premium para 120 personas (entrada, plato fuerte, postre y bebidas ilimitadas).</li>
+                            <li><strong>Mesa de Recepción:</strong> Estación elegante de pasabocas variados y dulces finos de alta repostería.</li>
+                            <li><strong>Decoración Premium:</strong> 400 globos, entrada de gala, photocall interactivo, luces LED y centros de mesa premium.</li>
+                            <li><strong>Show & Sonido:</strong> Sistema line array profesional, DJ en vivo, luces robóticas, máquina de humo y show de hora loca.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$350.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
 
-                <!-- Tarjeta 6: Paquete Imperial (El paquete especial premium de comida y evento) -->
+                <!-- Tarjeta 5: Paquete Buffet Premium (Completo) -->
+                <div class="package-card border-orange">
+                    <div class="package-info">
+                        <div class="package-badge badge-gray">🍗</div>
+                        <h4>Completo</h4>
+                        <ul class="package-list">
+                            <li><strong>Menú de Gala:</strong> 60 platos premium servidos con entrada y 2 opciones de proteína a elección.</li>
+                            <li><strong>Estaciones Libres:</strong> Estación completa de snacks salados y mesa de postres selectos.</li>
+                            <li><strong>Bar de Bebidas:</strong> Servicio ilimitado de bebidas refrescantes durante el banquete.</li>
+                            <li><strong>Personal:</strong> 4 meseros profesionales totalmente uniformados para la atención.</li>
+                        </ul>
+                    </div>
+                    <div class="package-footer">
+                        <div class="package-price">
+                            <span>Precio</span>
+                            <strong>$ 700.000</strong>
+                        </div>
+                        <a href="#" class="btn-more">Ver +</a>
+                    </div>
+                </div>
+                <!-- Tarjeta 6: Paquete Imperial -->
                 <div class="package-card border-blue">
                     <div class="package-info">
                         <div class="package-badge badge-gray">👑</div>
@@ -398,12 +399,12 @@
                         <a href="#" class="btn-more">Ver +</a>
                     </div>
                 </div>
-
             </div> <!-- Fin de la grilla de paquetes de buffet -->
-                        <!-- SUBSECCIÓN 3: SERVICIOS MODULARES Y COMPLEMENTOS -->
+                        
+            <!-- SUBSECCIÓN 3: SERVICIOS MODULARES Y COMPLEMENTOS -->
             <h3 class="category-title">Servicios modulares y complementos</h3>
             <div class="packages-grid">
-                
+                                
                 <!-- Tarjeta 7: Decoración Luxury -->
                 <div class="package-card border-purple">
                     <div class="package-info">
@@ -463,24 +464,18 @@
                         <a href="#" class="btn-more">Ver +</a>
                     </div>
                 </div>
-
             </div> <!-- Fin de la grilla de servicios modulares -->
-
         </div> <!-- Fin de la envoltura wrapper -->
     </section> <!-- Fin de la sección general de paquetes -->
-
-        <!-- 6. SECCIÓN LLAMADA A LA ACCIÓN (CTA MORADO) -->
+        
+    <!-- 6. SECCIÓN LLAMADA A LA ACCIÓN (CTA MORADO) -->
     <section class="cta-section">
         <div class="cta-container">
             <h2>¿Listo para celebrar tu evento?</h2>
             <p>Contáctanos hoy y comienza a planear tu momento inolvidable</p>
             <div class="cta-buttons">
-                <a href="tel:+573001234567" class="btn-cta-white">
-                     +57 300 123 4567
-                </a>
-                <a href="mailto:info@celebrabarranquilla.com" class="btn-cta-yellow">
-                    info@celebrabarranquilla.com
-                </a>
+                <a href="tel:+573001234567" class="btn-cta-white">+57 300 123 4567</a>
+                <a href="mailto:info@celebrabarranquilla.com" class="btn-cta-yellow">info@celebrabarranquilla.com</a>
             </div>
         </div>
     </section>
@@ -488,24 +483,24 @@
     <!-- 7. FOOTER PRINCIPAL (FONDO OSCURO) -->
     <footer class="main-footer">
         <div class="footer-container">
-            
+                        
             <!-- Columna 1: Marca -->
             <div class="footer-col">
                 <h3>CELEBRA</h3>
                 <p>Celebrando momentos inolvidables en Barranquilla desde hace más de 10 años.</p>
             </div>
-
+            
             <!-- Columna 2: Enlaces Rápidos -->
             <div class="footer-col">
                 <h3>Enlaces Rápidos</h3>
                 <ul class="footer-links">
                     <li><a href="#nuestros-salones">Salones</a></li>
-                    <li><a href="#paquetes">Eventos</a></li>
+                    <li><a href="#seccion-paquetes">Eventos</a></li>
                     <li><a href="#nuestros-salones">Disponibilidad</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </div>
-
+            
             <!-- Columna 3: Información de Contacto -->
             <div class="footer-col">
                 <h3>Contacto</h3>
@@ -515,45 +510,54 @@
                     <li><span class="icon">📍</span> Barranquilla, Colombia</li>
                 </ul>
             </div>
-
         </div>
-
         <!-- Barra Inferior de Copyright -->
         <div class="footer-bottom">
             <p>&copy; 2026 Celebra Barranquilla. Todos los derechos reservados.</p>
         </div>
     </footer>
-    <!-- LÓGICA DE MOVIMIENTO POR BOTONES (GALERÍA SUPERIOR ANCHO COMPLETO) -->
+
+
+    <!-- LÓGICAS JAVASCRIPT UNIFICADAS (LIMPIO Y CORREGIDO) -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Seleccionamos el riel de las fotos y los dos botones por sus IDs únicos
+            // 1. Script de la Galería Superior (Ancho Completo)
             const galleryTrack = document.getElementById('salonGalleryTrack');
             const galleryPrevBtn = document.getElementById('galleryPrevBtn');
             const galleryNextBtn = document.getElementById('galleryNextBtn');
 
             if (galleryTrack && galleryPrevBtn && galleryNextBtn) {
-                
-                // EVENTO: Clic en la Flecha Derecha (Siguiente)
+                // Avanza exactamente un ancho completo de pantalla al dar siguiente
                 galleryNextBtn.addEventListener('click', () => {
-                    galleryTrack.scrollBy({
-                        left: window.innerWidth, // Avanza exactamente el ancho total de la pantalla
-                        behavior: 'smooth'       // Movimiento fluido premium tipo Figma
-                    });
+                    galleryTrack.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
                 });
-
-                // EVENTO: Clic en la Flecha Izquierda (Anterior)
+                // Retrocede exactamente un ancho completo de pantalla al dar anterior
                 galleryPrevBtn.addEventListener('click', () => {
-                    galleryTrack.scrollBy({
-                        left: -window.innerWidth, // Retrocede exactamente el ancho total de la pantalla
-                        behavior: 'smooth'        // Movimiento fluido premium tipo Figma
-                    });
+                    galleryTrack.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+                });
+            }
+
+            // 2. Script del Carrusel de Recomendados de Abajo
+            const track = document.getElementById('carouselTrack');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+
+            const getScrollAmount = () => {
+                const card = document.querySelector('.room-card');
+                const gap = 24; 
+                return card ? card.offsetWidth + gap : 300;
+            };
+
+            if (track && prevBtn && nextBtn) {
+                nextBtn.addEventListener('click', () => {
+                    track.scrollBy({ left: getScrollAmount(), behavior: 'smooth' });
+                });
+                prevBtn.addEventListener('click', () => {
+                    track.scrollBy({ left: -getScrollAmount(), behavior: 'smooth' });
                 });
             }
         });
     </script>
-
-
-
 
 </body>
 </html>
