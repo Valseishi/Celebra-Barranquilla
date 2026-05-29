@@ -60,11 +60,56 @@
                     
                     <!-- NOTA: Cambia 'tu-usuario' y 'tu-repositorio' por los tuyos de GitHub Pages -->
                     <input type="hidden" name="_next" value="https://valseishi.github.io/Celebra-Barranquilla/userview.html">
-                    
+                    <!-- CASILLA OBLIGATORIA DE HABEAS DATA (CUMPLIMIENTO LEY 1581 DE 2012) -->
+                    <div class="habeas-data-container">
+                        <input type="checkbox" id="habeas_data" name="habeas_data" required>
+                        <label for="habeas_data">
+                            Acepto el tratamiento de mis datos personales de acuerdo con la 
+                            <a href="#modal-legal" class="legal-link" id="openModalBtn">Política de Privacidad</a> y la Ley 1581 de 2012.
+                        </label>
+                    </div>
+
+                    <!-- VENTANA MODAL OCULTA (POLÍTICA DE PRIVACIDAD LEY 1581) -->
+                    <div id="modal-legal" class="custom-modal">
+                        <div class="modal-content card">
+                            <div class="card-header">
+                                <span class="icon-warning-filled">🛡️</span>
+                                <h3>Política de Tratamiento de Datos</h3>
+                            </div>
+                            <div class="modal-body-text">
+                                <p><strong>Celebra Barranquilla</strong>, en cumplimiento de la <strong>Ley 1581 de 2012 (Habeas Data)</strong>, informa que los datos personales recolectados (Nombre y Correo Electrónico) serán utilizados exclusivamente para la gestión de reservas, cotizaciones de salones y contacto directo con el usuario.</p>
+                                <p>Garantizamos que la información no será compartida con terceros sin autorización expresa. Como titular de los datos, usted tiene derecho a conocer, actualizar, rectificar y solicitar la eliminación de su información en cualquier momento enviando una solicitud a nuestro canal de soporte.</p>
+                            </div>
+                            <div class="btn-container-center">
+                                <button type="button" class="add-package-btn" id="closeModalBtn">Entendido</button>
+                            </div>
+                        </div>
+                    </div>
                     <!-- Tu botón original con su estilo morado -->
                     <button type="submit" class="btn-submit-register">Registrarme</button>
                 </form>
             </div>
+            <script>
+                document.addEventListener('DOMContentLoaded', function() {
+                    const openModalBtn = document.getElementById('openModalBtn');
+                    const closeModalBtn = document.getElementById('closeModalBtn');
+                    const modalLegal = document.getElementById('modal-legal');
+
+                    if (openModalBtn && closeModalBtn && modalLegal) {
+                        // Abre el modal al dar clic en el enlace
+                        openModalBtn.addEventListener('click', function(e) {
+                            e.preventDefault(); // Evita que la página salte
+                            modalLegal.classList.add('is-active');
+                        });
+
+                        // Cierra el modal al dar clic en el botón "Entendido"
+                        closeModalBtn.addEventListener('click', function() {
+                            modalLegal.classList.remove('is-active');
+                        });
+                    }
+                });
+            </script>
+
 
             <!-- Contenedor Derecho: Galería Asimétrica de Bloques -->
             <div class="register-gallery">

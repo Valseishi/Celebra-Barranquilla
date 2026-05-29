@@ -165,6 +165,87 @@ body {
 .btn-submit-register:active {
     transform: scale(0.98);
 }
+/* Contenedor oscuro de fondo para el modal */
+.custom-modal {
+    display: none; 
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7) !important; /* Un poco más oscuro para dar profundidad */
+    z-index: 10000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+/* Cuando el modal se activa */
+.custom-modal.is-active {
+    display: flex !important;
+}
+
+/* CAJA BLANCA FIJA (Solución al problema de transparencia) */
+.custom-modal .modal-content {
+    background-color: #ffffff !important; /* 🌟 Forzamos el fondo blanco puro */
+    border-radius: 16px !important;
+    padding: 35px !important;
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3) !important;
+    border-top: 6px solid #751e9f !important; /* Línea morada superior de tu marca */
+    animation: fadeInModal 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Título interno del modal */
+.custom-modal h3 {
+    font-family: 'Inter', sans-serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #111111 !important; /* Texto bien oscuro */
+    margin: 0 0 20px 0;
+    text-align: left;
+}
+
+/* Contenedor del texto legal */
+.modal-body-text {
+    margin-bottom: 25px;
+}
+
+.modal-body-text p {
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    color: #444444 !important; /* Gris oscuro ultra legible */
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+    text-align: left;
+}
+
+/* BOTÓN MORADO PROPIO (Solución al botón plano) */
+.custom-modal #closeModalBtn {
+    background-color: #751e9f !important; /* Tu morado institucional */
+    color: #ffffff !important;
+    border: none !important;
+    padding: 12px 35px !important;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 10px !important;
+    cursor: pointer !important;
+    transition: background 0.2s;
+    display: inline-block;
+}
+
+.custom-modal #closeModalBtn:hover {
+    background-color: #5c167d !important;
+}
+
+@keyframes fadeInModal {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
 
 /* ==========================================
    BLOQUES ASIMÉTRICOS (GALERÍA DERECHA)
