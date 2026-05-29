@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reserva tu Salón – Celebra Barranquilla</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --purple:     #7B2FBE;
+      --purple-dk:  #5E1FA0;
+      --purple-lt:  #F3EAFF;
+      --purple-bd:  #C084FC;
+      --green:      #16A34A;
+      --gray-bg:    #F4F4F6;
+      --gray-bd:    #E2E2E8;
+      --gray-text:  #6B6B7B;
+      --dark:       #1A1A2A;
+      --white:      #FFFFFF;
+      --warn:       #F59E0B;
+      --radius:     14px;
+      --shadow:     0 2px 16px rgba(0,0,0,.08);
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--gray-bg);
+      color: var(--dark);
+      min-height: 100vh;
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background: var(--white);
+      border-bottom: 1px solid var(--gray-bd);
+      padding: 0 40px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .nav-logo-icon {
+      width: 34px; height: 34px;
+      background: var(--purple);
+      border-radius: 8px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .nav-logo span {
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--dark);
+    }
+    .nav-links { display: flex; gap: 6px; list-style: none; }
+    .nav-links a {
+      padding: 6px 14px;
+      border-radius: 8px;
+      font-size: .88rem;
+      font-weight: 500;
+      color: var(--gray-text);
+      text-decoration: none;
+      transition: background .15s, color .15s;
+    }
+    .nav-links a:hover { background: var(--purple-lt); color: var(--purple); }
+    .nav-links a.active { background: var(--purple-lt); color: var(--purple); font-weight: 600; }
+
+    /* ── BREADCRUMB ── */
+    .breadcrumb {
+      max-width: 1100px;
+      margin: 24px auto 0;
+      padding: 0 24px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .82rem;
+      color: var(--gray-text);
+    }
+    .breadcrumb a { color: var(--purple); text-decoration: none; font-weight: 500; }
+    .breadcrumb span { color: #bbb; }
+
+    /* ── PAGE HEADER ── */
+    .page-header {
+      max-width: 1100px;
+      margin: 14px auto 0;
+      padding: 0 24px;
+    }
+    .page-header h1 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--dark);
+      margin-bottom: 4px;
+    }
+    .page-header p { font-size: .9rem; color: var(--gray-text); }
+
+    /* ── LAYOUT ── */
+    .layout {
+      max-width: 1100px;
+      margin: 24px auto 60px;
+      padding: 0 24px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 24px;
+      align-items: start;
+    }
+    @media (max-width: 820px) {
+      .layout { grid-template-columns: 1fr; }
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+    }
+
+    /* ── CARD ── */
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--gray-bd);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+    .card + .card { margin-top: 20px; }
+
+    .card-header {
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid var(--gray-bd);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .card-header .icon-box {
+      width: 28px; height: 28px;
+      border-radius: 6px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .95rem;
+      flex-shrink: 0;
+    }
+    .icon-purple { background: var(--purple-lt); }
+    .card-header h2 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .card-body { padding: 24px 28px; }
+
+    /* ── FORM ELEMENTS ── */
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .form-grid.cols-1 { grid-template-columns: 1fr; }
+    @media (max-width: 560px) { .form-grid { grid-template-columns: 1fr; } }
+
+    .form-group { display: flex; flex-direction: column; gap: 6px; }
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: .78rem;
+      font-weight: 600;
+      letter-spacing: .4px;
+      text-transform: uppercase;
+      color: var(--gray-text);
+    }
+    input, select, textarea {
+      padding: 10px 14px;
+      border: 1.5px solid var(--gray-bd);
+      border-radius: 9px;
+      font-family: 'Inter', sans-serif;
+      font-size: .92rem;
+      color: var(--dark);
+      background: var(--white);
+      transition: border-color .18s, box-shadow .18s;
+      outline: none;
+      width: 100%;
+    }
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--purple);
+      box-shadow: 0 0 0 3px rgba(123,47,190,.12);
+    }
+    textarea { resize: vertical; min-height: 96px; }
+
+    .section-label {
+      font-size: .72rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--purple);
+      margin-bottom: 14px;
+      margin-top: 6px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid var(--purple-lt);
+    }
+
+    /* ── PAQUETES SELECTOR ── */
+    .paquetes-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-bottom: 4px;
+    }
+    @media (max-width: 560px) { .paquetes-grid { grid-template-columns: 1fr; } }
+
+    .paquete-opt {
+      border: 1.5px solid var(--gray-bd);
+      border-radius: 10px;
+      padding: 12px 14px;
+      cursor: pointer;
+      transition: border-color .15s, background .15s;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+    .paquete-opt:hover { border-color: var(--purple-bd); background: var(--purple-lt); }
+    .paquete-opt.selected { border-color: var(--purple); background: var(--purple-lt); }
+    .paquete-opt input[type="checkbox"] {
+      width: 16px; height: 16px;
+      margin-top: 2px;
+      accent-color: var(--purple);
+      flex-shrink: 0;
+    }
+    .paquete-info .name { font-size: .88rem; font-weight: 600; color: var(--dark); }
+    .paquete-info .price { font-size: .8rem; color: var(--purple); font-weight: 600; margin-top: 2px; }
+
+    /* ── SALONES SELECTOR ── */
+    .salon-opts { display: flex; flex-direction: column; gap: 8px; }
+    .salon-opt {
+      border: 1.5px solid var(--gray-bd);
+      border-radius: 10px;
+      padding: 12px 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color .15s, background .15s;
+    }
+    .salon-opt:hover { border-color: var(--purple-bd); background: var(--purple-lt); }
+    .salon-opt.selected { border-color: var(--purple); background: var(--purple-lt); }
+    .salon-opt input[type="radio"] {
+      accent-color: var(--purple);
+      width: 16px; height: 16px;
+    }
+    .salon-opt .left { display: flex; align-items: center; gap: 12px; }
+    .salon-opt .sname { font-size: .9rem; font-weight: 600; color: var(--dark); }
+    .salon-opt .smeta { font-size: .78rem; color: var(--gray-text); margin-top: 1px; }
+    .salon-opt .scap {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--purple);
+      background: var(--purple-lt);
+      padding: 3px 9px;
+      border-radius: 20px;
+    }
+
+    /* ── CHECKBOX PRIVACIDAD ── */
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 14px 16px;
+      background: var(--purple-lt);
+      border-radius: 10px;
+      border: 1px solid var(--purple-bd);
+    }
+    .check-row input[type="checkbox"] {
+      width: 16px; height: 16px;
+      margin-top: 2px;
+      accent-color: var(--purple);
+      flex-shrink: 0;
+    }
+    .check-row span { font-size: .84rem; color: var(--dark); line-height: 1.5; }
+    .check-row a { color: var(--purple); text-decoration: none; font-weight: 600; }
+
+    /* ── BTN ── */
+    .btn-primary {
+      width: 100%;
+      padding: 13px;
+      background: var(--purple);
+      color: #fff;
+      font-family: 'Inter', sans-serif;
+      font-weight: 700;
+      font-size: .92rem;
+      letter-spacing: .8px;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: background .18s, transform .12s;
+      margin-top: 6px;
+    }
+    .btn-primary:hover { background: var(--purple-dk); transform: translateY(-1px); }
+    .btn-primary:active { transform: translateY(0); }
+
+    /* ── SIDEBAR RESERVA ── */
+    .reserva-card .card-header .icon-box { background: var(--purple); }
+
+    .reserva-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gray-bd);
+      font-size: .88rem;
+    }
+    .reserva-row:last-of-type { border-bottom: none; }
+    .reserva-row .rlabel { color: var(--gray-text); font-weight: 500; }
+    .reserva-row .rvalue { font-weight: 600; color: var(--dark); text-align: right; max-width: 55%; }
+    .reserva-row .rvalue.empty { color: #bbb; font-weight: 400; font-style: italic; }
+
+    .precio-total {
+      margin: 4px 0 16px;
+      padding: 14px 0;
+      border-top: 2px solid var(--gray-bd);
+    }
+    .precio-total .label { font-size: .8rem; color: var(--gray-text); margin-bottom: 4px; }
+    .precio-total .amount {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--green);
+    }
+
+    /* ── UBICACION ── */
+    .map-embed {
+      width: 100%;
+      height: 150px;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid var(--gray-bd);
+      margin-top: 10px;
+    }
+    .map-embed iframe { width: 100%; height: 100%; border: none; }
+
+    .ubicacion-text { font-size: .82rem; color: var(--gray-text); margin-top: 8px; }
+    .ubicacion-text strong { color: var(--dark); }
+
+    /* ── REGLAS ── */
+    .reglas-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px 32px;
+    }
+    @media (max-width: 600px) { .reglas-grid { grid-template-columns: 1fr; } }
+
+    .regla-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: .86rem;
+      color: var(--dark);
+      line-height: 1.55;
+    }
+    .regla-item::before {
+      content: '•';
+      color: var(--purple);
+      font-size: 1.1rem;
+      flex-shrink: 0;
+      margin-top: -1px;
+    }
+
+    /* ── WARN HEADER ── */
+    .warn-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 22px 28px;
+      border-bottom: 1px solid var(--gray-bd);
+    }
+    .warn-header .icon-warn {
+      font-size: 1.3rem;
+    }
+    .warn-header h2 {
+      font-size: 1rem;
+      font-weight: 800;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      color: var(--dark);
+    }
+
+    /* ── SUCCESS ── */
+    .success-banner {
+      display: none;
+      background: #dcfce7;
+      border: 1.5px solid #86efac;
+      color: #166534;
+      padding: 16px 20px;
+      border-radius: 10px;
+      font-size: .9rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      text-align: center;
+    }
+
+    /* ── STEPS sidebar ── */
+    .steps-list { display: flex; flex-direction: column; gap: 14px; }
+    .step-item { display: flex; gap: 12px; align-items: flex-start; }
+    .step-num {
+      width: 26px; height: 26px;
+      border-radius: 50%;
+      background: var(--purple);
+      color: #fff;
+      font-size: .78rem;
+      font-weight: 700;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .step-body .stitle { font-size: .88rem; font-weight: 600; color: var(--dark); }
+    .step-body .sdesc { font-size: .8rem; color: var(--gray-text); margin-top: 2px; }
+
+    /* tag disponible */
+    .tag-disp {
+      display: inline-block;
+      background: #dcfce7;
+      color: #166534;
+      font-size: .72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 20px;
+      margin-left: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <div class="nav-logo-icon">🎉</div>
+    <span>Celebra Barranquilla</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="index.html#nuestros-salones">Salones</a></li>
+    <li><a href="index.html#paquetes">Paquetes</a></li>
+    <li><a href="reservas.html" class="active">Reservas</a></li>
+  </ul>
+</nav>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="index.html">Inicio</a>
+  <span>›</span>
+  <a href="index.html#nuestros-salones">Salones</a>
+  <span>›</span>
+  Reservar
+</div>
+
+<!-- PAGE HEADER -->
+<div class="page-header">
+  <h1>Reserva tu salón</h1>
+  <p>Completa los datos y confirmamos disponibilidad en menos de 24 horas.</p>
+</div>
+
+<!-- LAYOUT PRINCIPAL -->
+<div class="layout">
+
+  <!-- COLUMNA IZQUIERDA -->
+  <div>
+
+    <!-- CARD: DATOS PERSONALES -->
+    <div class="card">
+      <div class="card-header">
+        <div class="icon-box icon-purple">👤</div>
+        <h2>Datos personales</h2>
+      </div>
+      <div class="card-body">
+        <div class="success-banner" id="successMsg">
+          ✅ ¡Solicitud enviada! Te contactamos pronto para confirmar.
+        </div>
+        <form id="reservaForm" action="https://formsubmit.co/perezvillalbavalerie@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="Nueva Reserva - Celebra Barranquilla">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://valseishi.github.io/Celebra-Barranquilla/reserva.html">
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="nombre">Nombre completo</label>
+              <input type="text" id="nombre" name="nombre" placeholder="Ej: Laura Martínez" required/>
+            </div>
+            <div class="form-group">
+              <label for="telefono">Teléfono / WhatsApp</label>
+              <input type="tel" id="telefono" name="telefono" placeholder="+57 300 000 0000" required/>
+            </div>
+            <div class="form-group full">
+              <label for="correo">Correo electrónico</label>
+              <input type="email" id="correo" name="correo" placeholder="tucorreo@ejemplo.com" required/>
+            </div>
+          </div>
+
+          <!-- SECCION: SALON -->
+          <p class="section-label" style="margin-top:24px;">Selección de salón</p>
+          <div class="salon-opts" id="salonOpts">
+            <label class="salon-opt" onclick="selectSalon(this,'Imperial','250','Zona Sur')">
+              <div class="left">
+                <input type="radio" name="salon" value="Imperial" required/>
+                <div>
+                  <div class="sname">Salón Imperial <span class="tag-disp">Disponible</span></div>
+                  <div class="smeta">📍 Zona Sur</div>
+                </div>
+              </div>
+              <span class="scap">👥 250 pers.</span>
+            </label>
+            <label class="salon-opt" onclick="selectSalon(this,'Golden','200','Zona Norte')">
+              <div class="left">
+                <input type="radio" name="salon" value="Golden"/>
+                <div>
+                  <div class="sname">Salón Golden <span class="tag-disp">Disponible</span></div>
+                  <div class="smeta">📍 Zona Norte</div>
+                </div>
+              </div>
+              <span class="scap">👥 200 pers.</span>
+            </label>
+            <label class="salon-opt" onclick="selectSalon(this,'Élite','180','Zona Norte')">
+              <div class="left">
+                <input type="radio" name="salon" value="Elite"/>
+                <div>
+                  <div class="sname">Salón Élite <span class="tag-disp">Disponible</span></div>
+                  <div class="smeta">📍 Zona Norte</div>
+                </div>
+              </div>
+              <span class="scap">👥 180 pers.</span>
+            </label>
+            <label class="salon-opt" onclick="selectSalon(this,'Sunset','180','Riomar')">
+              <div class="left">
+                <input type="radio" name="salon" value="Sunset"/>
+                <div>
+                  <div class="sname">Salón Sunset <span class="tag-disp">Disponible</span></div>
+                  <div class="smeta">📍 Riomar</div>
+                </div>
+              </div>
+              <span class="scap">👥 180 pers.</span>
+            </label>
+            <label class="salon-opt" onclick="selectSalon(this,'Alegría','80','Zona Oriental')">
+              <div class="left">
+                <input type="radio" name="salon" value="Alegria"/>
+                <div>
+                  <div class="sname">Salón Alegría <span class="tag-disp">Disponible</span></div>
+                  <div class="smeta">📍 Zona Oriental</div>
+                </div>
+              </div>
+              <span class="scap">👥 80 pers.</span>
+            </label>
+          </div>
+
+          <!-- SECCION: EVENTO -->
+          <p class="section-label" style="margin-top:26px;">Detalles del evento</p>
+          <div class="form-grid">
+            <div class="form-group">
+              <label for="tipo">Tipo de evento</label>
+              <select id="tipo" name="tipo_evento" required>
+                <option value="" disabled selected>Seleccionar</option>
+                <option>Boda</option>
+                <option>Quinceañero</option>
+                <option>Cumpleaños</option>
+                <option>Evento corporativo</option>
+                <option>Grado</option>
+                <option>Otro</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="invitados">N.º de invitados</label>
+              <input type="number" id="invitados" name="invitados" placeholder="Ej: 120" min="1" required/>
+            </div>
+            <div class="form-group">
+              <label for="fecha">Fecha del evento</label>
+              <input type="date" id="fecha" name="fecha" required onchange="updateFecha(this.value)"/>
+            </div>
+            <div class="form-group">
+              <label for="hora">Hora de inicio</label>
+              <input type="time" id="hora" name="hora" required/>
+            </div>
+            <div class="form-group full">
+              <label for="mensaje">Comentarios adicionales</label>
+              <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos sobre tu evento, requerimientos especiales, decoración, etc."></textarea>
+            </div>
+          </div>
+
+          <!-- SECCION: PAQUETES -->
+          <p class="section-label" style="margin-top:26px;">Añadir paquetes (opcional)</p>
+          <div class="paquetes-grid">
+            <label class="paquete-opt" onclick="togglePaquete(this, 500000)">
+              <input type="checkbox" name="paquete" value="Basico"/>
+              <div class="paquete-info">
+                <div class="name">🟣 Básico</div>
+                <div class="price">$500.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 850000)">
+              <input type="checkbox" name="paquete" value="Celebration"/>
+              <div class="paquete-info">
+                <div class="name">💡 Celebration</div>
+                <div class="price">$850.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 1300000)">
+              <input type="checkbox" name="paquete" value="Golden"/>
+              <div class="paquete-info">
+                <div class="name">🌟 Golden</div>
+                <div class="price">$1.300.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 350000)">
+              <input type="checkbox" name="paquete" value="Clasico Buffet"/>
+              <div class="paquete-info">
+                <div class="name">🍽️ Clásico Buffet</div>
+                <div class="price">$350.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 700000)">
+              <input type="checkbox" name="paquete" value="Completo"/>
+              <div class="paquete-info">
+                <div class="name">🍗 Completo</div>
+                <div class="price">$700.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 600000)">
+              <input type="checkbox" name="paquete" value="Decoracion Luxury"/>
+              <div class="paquete-info">
+                <div class="name">✨ Decoración Luxury</div>
+                <div class="price">$600.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 550000)">
+              <input type="checkbox" name="paquete" value="Sonido Profesional"/>
+              <div class="paquete-info">
+                <div class="name">🎤 Sonido Profesional</div>
+                <div class="price">$550.000 COP</div>
+              </div>
+            </label>
+            <label class="paquete-opt" onclick="togglePaquete(this, 450000)">
+              <input type="checkbox" name="paquete" value="Full Party"/>
+              <div class="paquete-info">
+                <div class="name">🎉 Full Party</div>
+                <div class="price">$450.000 COP</div>
+              </div>
+            </label>
+          </div>
+
+          <!-- PRIVACIDAD -->
+          <div class="check-row" style="margin-top:24px;">
+            <input type="checkbox" id="privacidad" name="privacidad" required/>
+            <span>He leído y acepto la <a href="#">política de tratamiento de datos personales</a> conforme a la <strong>Ley 1581 de 2012</strong>.</span>
+          </div>
+
+          <button type="submit" class="btn-primary" style="margin-top:18px;">CONFIRMAR RESERVA</button>
+
+        </form>
+      </div>
+    </div>
+
+    <!-- CARD: REGLAS -->
+    <div class="card" style="margin-top:20px;">
+      <div class="warn-header">
+        <span class="icon-warn">⚠️</span>
+        <h2>Reglas Generales</h2>
+      </div>
+      <div class="card-body">
+        <div class="reglas-grid">
+          <div class="regla-item">El tiempo reservado debe respetarse según el horario acordado con administración.</div>
+          <div class="regla-item">El menú y la decoración deben especificarse con anticipación para asegurar disponibilidad.</div>
+          <div class="regla-item">No está permitido sobrepasar la capacidad máxima del salón por motivos de seguridad.</div>
+          <div class="regla-item">Está prohibido causar daños a las instalaciones, mobiliario o equipos del salón.</div>
+          <div class="regla-item">En caso de cancelación, el cliente debe informar con mínimo 15 días de anticipación. Después de este plazo se aplica una penalidad de $50.000 COP.</div>
+          <div class="regla-item">No se permite el ingreso de elementos peligrosos, sustancias inflamables o pólvora dentro de las instalaciones.</div>
+          <div class="regla-item">Toda modificación en la reserva debe consultarse previamente con administración.</div>
+          <div class="regla-item">El pago del anticipo del 30% confirma la reserva. El saldo restante se cancela el día del evento.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- COLUMNA DERECHA (SIDEBAR) -->
+  <div>
+
+    <!-- CARD: RESUMEN RESERVA -->
+    <div class="card reserva-card">
+      <div class="card-header">
+        <div class="icon-box" style="background:var(--purple);">
+          <span style="color:#fff;font-size:.85rem;">📋</span>
+        </div>
+        <h2>Reserva</h2>
+      </div>
+      <div class="card-body">
+
+        <div class="reserva-row">
+          <span class="rlabel">Salón</span>
+          <span class="rvalue empty" id="sum-salon">Sin seleccionar</span>
+        </div>
+        <div class="reserva-row">
+          <span class="rlabel">Fecha</span>
+          <span class="rvalue empty" id="sum-fecha">Sin seleccionar</span>
+        </div>
+        <div class="reserva-row">
+          <span class="rlabel">Capacidad</span>
+          <span class="rvalue empty" id="sum-cap">—</span>
+        </div>
+        <div class="reserva-row">
+          <span class="rlabel">Paquetes</span>
+          <span class="rvalue empty" id="sum-paquetes">Ninguno añadido</span>
+        </div>
+
+        <div class="precio-total">
+          <div class="label">Valor de reserva (anticipo 30%)</div>
+          <div class="amount" id="sum-precio">$0 COP</div>
+        </div>
+
+        <button type="submit" form="reservaForm" class="btn-primary">RESERVAR</button>
+
+      </div>
+    </div>
+
+    <!-- CARD: UBICACION -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-header">
+        <div class="icon-box icon-purple">📍</div>
+        <h2>Ubicación</h2>
+      </div>
+      <div class="card-body">
+        <div class="ubicacion-text">
+          <strong id="ub-salon">Cra. 48 #75-65</strong><br/>
+          <span id="ub-zona">Barranquilla, Atlántico — Zona Norte</span>
+        </div>
+        <div class="map-embed">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3926.5!2d-74.796!3d11.006!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTHCsDAwJzIxLjYiTiA3NMKwNDcnNDUuNiJX!5e0!3m2!1ses!2sco!4v1"
+            allowfullscreen="" loading="lazy">
+          </iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD: PASOS -->
+    <div class="card" style="margin-top:20px;">
+      <div class="card-header">
+        <div class="icon-box icon-purple">🗓️</div>
+        <h2>¿Cómo funciona?</h2>
+      </div>
+      <div class="card-body">
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-num">1</div>
+            <div class="step-body">
+              <div class="stitle">Envía tu solicitud</div>
+              <div class="sdesc">Completa el formulario con los datos de tu evento.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">2</div>
+            <div class="step-body">
+              <div class="stitle">Te contactamos</div>
+              <div class="sdesc">Confirmamos disponibilidad en menos de 24 horas.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">3</div>
+            <div class="step-body">
+              <div class="stitle">Paga el anticipo</div>
+              <div class="sdesc">El 30% del valor aparta tu fecha.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-num">4</div>
+            <div class="step-body">
+              <div class="stitle">¡A celebrar!</div>
+              <div class="sdesc">Nosotros nos encargamos del resto.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<script>
+  // Precio base del anticipo (30% de 500.000)
+  let precioBase = 500000;
+  let extraPaquetes = 0;
+  let paquetesActivos = [];
+
+  const salonPrecios = {
+    'Imperial': 500000, 'Golden': 400000, 'Élite': 350000,
+    'Sunset': 350000, 'Alegría': 200000
+  };
+
+  function formatCOP(n) {
+    return '$' + n.toLocaleString('es-CO') + ' COP';
+  }
+
+  function updatePrecio() {
+    const total = Math.round((precioBase + extraPaquetes) * 0.3);
+    document.getElementById('sum-precio').textContent = formatCOP(total);
+  }
+
+  function selectSalon(el, nombre, cap, zona) {
+    document.querySelectorAll('.salon-opt').forEach(o => o.classList.remove('selected'));
+    el.classList.add('selected');
+    document.getElementById('sum-salon').textContent = 'Salón ' + nombre;
+    document.getElementById('sum-salon').classList.remove('empty');
+    document.getElementById('sum-cap').textContent = '👥 ' + cap + ' personas';
+    document.getElementById('sum-cap').classList.remove('empty');
+    document.getElementById('ub-salon').textContent = 'Salón ' + nombre;
+    document.getElementById('ub-zona').textContent = 'Barranquilla, Atlántico — ' + zona;
+    precioBase = salonPrecios[nombre] || 500000;
+    updatePrecio();
+  }
+
+    function togglePaquete(el, precio) {
+
+    const cb = el.querySelector('input[type="checkbox"]');
+    const nombre = el.querySelector('.name').textContent;
+
+    // CAMBIO VISUAL
+    el.classList.toggle('selected');
+
+    // SI SE ACTIVÓ
+    if (!cb.checked) {
+
+        paquetesActivos.push(nombre);
+        extraPaquetes += precio;
+
+    } else {
+
+        paquetesActivos = paquetesActivos.filter(p => p !== nombre);
+        extraPaquetes -= precio;
+
+    }
+
+    // EVITAR NEGATIVOS
+    if (extraPaquetes < 0) {
+        extraPaquetes = 0;
+    }
+
+    // MOSTRAR PAQUETES
+    const el2 = document.getElementById('sum-paquetes');
+
+    if (paquetesActivos.length === 0) {
+
+        el2.textContent = 'Ninguno añadido';
+        el2.classList.add('empty');
+
+    } else {
+
+        el2.textContent = paquetesActivos.join(', ');
+        el2.classList.remove('empty');
+
+    }
+
+    // ACTUALIZAR PRECIO
+    updatePrecio();
+    }
+
+  function updateFecha(val) {
+    const el = document.getElementById('sum-fecha');
+    if (val) {
+      const d = new Date(val + 'T00:00:00');
+      el.textContent = d.toLocaleDateString('es-CO', { day:'numeric', month:'long', year:'numeric' });
+      el.classList.remove('empty');
+    }
+  }
+
+  // Fecha mínima hoy
+  const hoy = new Date().toISOString().split('T')[0];
+  document.getElementById('fecha').min = hoy;
+
+  // Submit
+  document.getElementById('reservaForm').addEventListener('submit', function() {
+    document.getElementById('successMsg').style.display = 'block';
+  });
+</script>
+
+</body>
+</html>
