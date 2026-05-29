@@ -31,50 +31,57 @@
       min-height: 100vh;
     }
 
-    /* ── NAVBAR ── */
-    nav {
-      background: var(--white);
-      border-bottom: 1px solid var(--gray-bd);
-      padding: 0 40px;
-      height: 64px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 100;
+    /* --- HEADER (Fondo Blanco) --- */
+    .header {
+        width: 100%;
+        height: 90px;
+        background-color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 80px;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      text-decoration: none;
-    }
-    .nav-logo-icon {
-      width: 34px; height: 34px;
-      background: var(--purple);
-      border-radius: 8px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-    }
-    .nav-logo span {
-      font-weight: 700;
-      font-size: 1rem;
-      color: var(--dark);
-    }
-    .nav-links { display: flex; gap: 6px; list-style: none; }
-    .nav-links a {
-      padding: 6px 14px;
-      border-radius: 8px;
-      font-size: .88rem;
-      font-weight: 500;
-      color: var(--gray-text);
-      text-decoration: none;
-      transition: background .15s, color .15s;
-    }
-    .nav-links a:hover { background: var(--purple-lt); color: var(--purple); }
-    .nav-links a.active { background: var(--purple-lt); color: var(--purple); font-weight: 600; }
 
+    /* LOGO */
+    .logo img {
+        width: 160px;
+        object-fit: contain;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        display: flex;
+        align-items: center;
+        margin-left: auto; /* Empuja el menú hacia la derecha */
+        margin-right: 40px; /* Separación con el botón registrarme */
+    }
+
+    .navbar a {
+        text-decoration: none;
+        color: #333333; /* Texto oscuro para contrastar con fondo blanco */
+        font-size: 16px;
+        font-weight: 500;
+        transition: 0.3s;
+    }
+
+    .navbar a:hover {
+        color: #751e9f;
+    }
+
+    /* BOTON REGISTRARME */
+    .btn-register {
+        text-decoration: none;
+        background-color: #5c1d93; /* El morado exacto del botón superior */
+        color: white;
+        padding: 12px 28px;
+        border-radius: 8px; 
+        font-weight: 600;
+        transition: 0.3s;
+    }
+
+    .btn-register:hover {
+        background-color: #481475;
+    }
     /* ── BREADCRUMB ── */
     .breadcrumb {
       max-width: 1100px;
@@ -425,19 +432,16 @@
 </head>
 <body>
 
-<!-- NAVBAR -->
-<nav>
-  <a href="index.html" class="nav-logo">
-    <div class="nav-logo-icon">🎉</div>
-    <span>Celebra Barranquilla</span>
-  </a>
-  <ul class="nav-links">
-    <li><a href="index.html">Inicio</a></li>
-    <li><a href="index.html#nuestros-salones">Salones</a></li>
-    <li><a href="index.html#paquetes">Paquetes</a></li>
-    <li><a href="reservas.html" class="active">Reservas</a></li>
-  </ul>
-</nav>
+<!-- 1. HEADER (Fondo Blanco) -->
+<header class="header">
+    <div class="logo">
+        <img src="static/logo.png" alt="Logo Celebra">
+    </div>
+
+    <a href="javascript:history.back()" class="btn-register">
+        volver 
+    </a>
+</header>
 
 <!-- BREADCRUMB -->
 <div class="breadcrumb">

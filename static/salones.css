@@ -331,6 +331,12 @@ body {
 }
 
 .reserve-btn {
+    display: block;
+    text-align: center;
+    box-sizing: border-box;
+    
+    color: white;
+    text-decoration: none;
     background-color: #751e9f;
     width: 100%;
     padding: 14px;
